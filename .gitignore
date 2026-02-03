@@ -1,0 +1,7 @@
+# Dependencies
+node_modules/
+
+# Optional: ถ้าใช้ build tool เพิ่มภายหลัง
+# dist/
+# .env
+# .env.local

@@ -8,88 +8,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="styles.css">
+
     <script>
         tailwind.config = {
             darkMode: 'class', // Enable class-based dark mode
         }
     </script>
-
-    <style>
-        /* General & Base Styles */
-        html, body {
-            height: 100%;
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-        }
-        :focus-visible {
-            outline: 3px solid rgba(59, 130, 246, 0.3);
-            outline-offset: 3px;
-            border-radius: 4px;
-        }
-
-        /* --- Animated Background Blobs --- */
-        .blob-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            will-change: transform;
-            transition: opacity 500ms ease;
-        }
-        /* Light theme blobs */
-        .light .blob { filter: blur(80px); opacity: 0.4; }
-        .light .blob-1 { background-color: #a7c5eb; width: 400px; height: 400px; animation: moveBlob1 25s infinite alternate; }
-        .light .blob-2 { background-color: #c4b5fd; width: 350px; height: 350px; animation: moveBlob2 30s infinite alternate-reverse; }
-        .light .blob-3 { background-color: #5a5dee; width: 300px; height: 300px; animation: moveBlob3 35s infinite alternate; display: block; }
-        
-        /* Dark theme blobs */
-        .dark .blob { filter: blur(100px); opacity: 0.2; }
-        .dark .blob-1 { background-color: #38bdf8; width: 450px; height: 450px; animation: moveBlob1 25s infinite alternate; }
-        .dark .blob-2 { background-color: #818cf8; width: 400px; height: 400px; animation: moveBlob2 30s infinite alternate-reverse; }
-        .dark .blob-3 { background-color: #e879f9; width: 300px; height: 300px; animation: moveBlob3 35s infinite alternate; display: block; }
-
-        @keyframes moveBlob1 { from { transform: translate(-10%, -20%) scale(1); } to { transform: translate(20%, 30%) scale(1.2); } }
-        @keyframes moveBlob2 { from { transform: translate(80%, 60%) scale(1); } to { transform: translate(50%, -10%) scale(0.9); } }
-        @keyframes moveBlob3 { from { transform: translate(40%, -30%) scale(0.8); } to { transform: translate(-20%, 50%) scale(1.1); } }
-
-        /* --- UI Components & Utilities --- */
-        .reveal { opacity: 0; transform: translateY(12px); transition: all 600ms cubic-bezier(.2,.9,.3,1); }
-        .reveal.show { opacity: 1; transform: translateY(0); }
-        #progress { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg,#38bdf8,#a78bfa); width: 0%; z-index: 60; }
-        .mobile-nav { 
-            transition: transform .35s cubic-bezier(.2,.9,.3,1), opacity .25s; 
-            transform: scaleY(0);
-            opacity: 0;
-            transform-origin: top;
-        }
-        .mobile-nav.is-open {
-            transform: scaleY(1);
-            opacity: 1;
-        }
-        .project-card { overflow: hidden; }
-        .project-card img { transition: transform .5s ease; }
-        .project-card:hover img { transform: scale(1.06); }
-
-        /* FIX: เพิ่ม media query สำหรับ Mobile เพื่อจัดการรูปภาพและ layout */
-        @media (max-width: 767px) {
-            .project-card img {
-                width: 100%;
-                height: auto;
-                object-fit: cover;
-                margin-bottom: 1rem;
-            }
-        }
-    </style>
     <script>
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
@@ -102,13 +27,55 @@
 </head>
 <body class="min-h-screen bg-sky-50 dark:bg-gray-900 text-slate-800 dark:text-slate-300 antialiased transition-colors duration-300">
 
+    <!-- Fizzi D Background (แนวเดียวกับ fizziD.tsx) -->
+    <div id="fizzi-d" class="fizzi-d" aria-hidden="true">
+        <div class="fizzi-d-base"></div>
+        <div class="fizzi-d-orb fizzi-d-orb-1"></div>
+        <div class="fizzi-d-orb fizzi-d-orb-2"></div>
+        <div class="fizzi-d-orb fizzi-d-orb-3"></div>
+        <div class="fizzi-d-orb fizzi-d-orb-4"></div>
+        <div class="fizzi-d-shine"></div>
+    </div>
+
+    <!-- Sliding diagonals background (โทนอ่อน) -->
+    <div class="sliding-diagonals" aria-hidden="true">
+        <div class="sliding-diagonals-layer sliding-diagonals-layer-1"></div>
+        <div class="sliding-diagonals-layer sliding-diagonals-layer-2"></div>
+    </div>
+
+    <!-- กลบโทนม่วงมุมซ้ายบน (โหมดสว่าง) -->
+    <div class="top-left-sky-overlay light-only" aria-hidden="true"></div>
+
     <div class="blob-container">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
         <div class="blob blob-3"></div>
+        <!-- Fizzi-style: 3D orbs glow -->
+        <div class="orb-glow orb-glow-1"></div>
+        <div class="orb-glow orb-glow-2"></div>
+        <div class="orb-glow orb-glow-3"></div>
+        <!-- Fizzi-style: wavy circles -->
+        <div class="wavy-circles">
+            <div class="wavy-circle wavy-circle-1"></div>
+            <div class="wavy-circle wavy-circle-2"></div>
+            <div class="wavy-circle wavy-circle-3"></div>
+        </div>
+        <!-- Fizzi-style: floating bubbles -->
+        <div class="bubbles-wrap">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
     </div>
     <div id="progress"></div>
-    <header class="sticky top-0 z-50">
+    <!-- แสงตามเมาส์ (โหมดสว่าง) -->
+    <div id="mouseSpotlight" class="mouse-spotlight light-only" aria-hidden="true"></div>
+    <header id="mainHeader" class="sticky top-0 z-50">
         <div class="backdrop-blur-lg bg-white/80 dark:bg-gray-900/80 border-b border-slate-200/80 dark:border-slate-200/10">
             <div class="max-w-7xl mx-auto px-5 md:px-8 lg:px-12 flex items-center justify-between h-16">
                 <a href="#home" class="flex items-center gap-3 shrink-0">
@@ -127,13 +94,15 @@
                     <a href="#timeline" class="group relative px-1 py-2 hover:text-slate-900 dark:hover:text-slate-50">Timeline <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-gradient-to-r from-sky-400 to-violet-500 rounded-full transition-all group-hover:w-full"></span></a>
                 </nav>
                 <div class="flex items-center gap-2">
-                    <button id="themeToggle" class="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
-                        <svg id="theme-icon-light" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                        </svg>
-                        <svg id="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                        </svg>
+                    <button id="themeToggle" class="theme-toggle-btn p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors inline-flex items-center justify-center">
+                        <span class="theme-icon-wrap relative block w-5 h-5">
+                            <svg id="theme-icon-light" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute inset-0 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                            <svg id="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute inset-0 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                            </svg>
+                        </span>
                     </button>
                     <a href="#contact" class="hidden md:inline-block px-5 py-2 rounded-full bg-gradient-to-r from-sky-400 to-violet-500 text-white font-semibold text-sm shadow-lg shadow-sky-500/20 hover:scale-105 transition-transform">Contact</a>
                     <button id="mobileBtn" class="md:hidden p-2 rounded-md bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300">
@@ -190,19 +159,18 @@
                     </div>
                     <div class="mt-5 text-sm text-slate-600 dark:text-slate-300 font-medium">Skills</div>
                     <div class="mt-2 flex flex-wrap gap-2">
-                        <span class="text-xs px-3 py-1 bg-sky-100 text-sky-800 dark:bg-sky-500/20 dark:text-sky-300 rounded-full font-medium">ESP32</span>
-                        <span class="text-xs px-3 py-1 bg-violet-100 text-violet-800 dark:bg-violet-500/20 dark:text-violet-300 rounded-full font-medium">React Native</span>
-                        <span class="text-xs px-3 py-1 bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-300 rounded-full font-medium">Python</span>
+                        <span class="tag-lift text-xs px-3 py-1 bg-sky-100 text-sky-800 dark:bg-sky-500/20 dark:text-sky-300 rounded-full font-medium">ESP32</span>
+                        <span class="tag-lift text-xs px-3 py-1 bg-violet-100 text-violet-800 dark:bg-violet-500/20 dark:text-violet-300 rounded-full font-medium">React Native</span>
+                        <span class="tag-lift text-xs px-3 py-1 bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-300 rounded-full font-medium">Python</span>
                     </div>
         </section>
         >
         <section id="aboutme" class="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
-    <div class="reveal grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
-        
-        <div class="w-64 h-64 lg:w-80 lg:h-80 mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
+        <div class="reveal-left w-64 h-64 lg:w-80 lg:h-80 mx-auto">
             <img src="รูปหล่อ.jpg" alt="Wattana Manangam Profile Picture" class="rounded-full w-full h-full object-cover shadow-lg border-4 border-slate-200 dark:border-slate-700 transform hover:scale-105 transition-transform duration-300">
         </div>
-        <div class="text-center md:text-left">
+        <div class="reveal-right text-center md:text-left">
             <h2 class="text-slate-500 dark:text-slate-400 text-lg font-medium tracking-wider">ABOUT ME</h2>
             <h3 class="text-slate-900 dark:text-slate-50 text-4xl lg:text-5xl font-extrabold tracking-tight mt-2">
             นาย วัฒนา มานะงาม
@@ -223,25 +191,25 @@
                 <h3 class="text-slate-900 dark:text-slate-50 text-3xl font-bold tracking-tight">My Skills</h3>
                 <p class="text-slate-500 dark:text-slate-400 mt-2 max-w-2xl mx-auto">เทคโนโลยีที่คุ้นเคย เครื่องมือที่เคยใช้เเละภาษา,<br> Embedded / IoT Skills, Programming Languages and Tools</p>
             </div>
-            <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="p-6 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 reveal transition-all hover:-translate-y-1 hover:shadow-xl">
+            <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+                <div class="reveal-item reveal-item-delay-1 p-6 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl">
                     <div class="text-sky-500 dark:text-sky-400 text-sm font-semibold">Embedded / IoT Skills</div>
                     <div class="mt-2 font-bold text-slate-800 dark:text-slate-200">Microcontrollers / Boards</div>
                     <div class="mt-3 text-slate-500 dark:text-slate-400 text-sm">ESP8266 / ESP32 </div>
                     <div class="mt-4 text-slate-500 dark:text-slate-400 text-sm">Blynk Mobile App Control IoT </div>
                     <div class="mt-4 text-slate-500 dark:text-slate-400 text-sm">Servo Motors </div>
                 </div>
-                <div class="p-6 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 reveal transition-all hover:-translate-y-1 hover:shadow-xl">
+                <div class="reveal-item reveal-item-delay-2 p-6 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl">
                     <div class="text-violet-500 dark:text-violet-400 text-sm font-semibold">Programming Languages</div>
                     <div class="mt-4 text-slate-500 dark:text-slate-400 text-sm">C / C++</div>
                     <div class="mt-3 text-slate-500 dark:text-slate-400 text-sm">Python</div>
                     <div class="mt-4 text-slate-500 dark:text-slate-400 text-sm">HTML </div>
                 </div>
-                <div class="p-6 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 reveal transition-all hover:-translate-y-1 hover:shadow-xl">
+                <div class="reveal-item reveal-item-delay-3 p-6 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl">
                     <div class="text-emerald-500 dark:text-emerald-400 text-sm font-semibold">Database</div>
                     <div class="mt-3 text-slate-500 dark:text-slate-400 text-sm">MySQL</div>
                 </div>
-                <div class="p-6 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 reveal transition-all hover:-translate-y-1 hover:shadow-xl">
+                <div class="reveal-item reveal-item-delay-4 p-6 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl">
                     <div class="text-rose-500 dark:text-rose-400 text-sm font-semibold">Tools</div>
                     <div class="mt-4 text-slate-500 dark:text-slate-400 text-sm">Arduino IDE</div>
                     <div class="mt-3 text-slate-500 dark:text-slate-400 text-sm">VS Code</div>
@@ -255,8 +223,8 @@
                 <h3 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">My Projects</h3>
                 <p class="text-slate-500 dark:text-slate-400 mt-2">ผลงานที่เด่นและเทคโนโลยีที่ใช้</p>
             </div>
-            <div class="mt-10 flex flex-col gap-8">
-<div class="bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 rounded-xl shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 overflow-hidden hover:shadow-2xl transition p-4 md:flex gap-4">
+            <div class="mt-10 flex flex-col gap-8 reveal">
+<div class="card-3d reveal-item reveal-item-delay-1 bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-4 md:flex gap-4 backdrop-blur-sm">
     <img src="cachedImage.png" alt="รูปโปรเจกต์เครื่องให้อาหารแมว" class="w-full md:w-1/4 h-auto rounded-lg object-cover">
     <div class="flex-1 text-slate-800 dark:text-slate-100">
         <h3 class="text-xl font-bold mb-4">
@@ -289,9 +257,9 @@
             </li>
         </ul>
         <div class="mt-4 flex flex-wrap gap-2">
-            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">IoT</span>
-            <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Arduino IDE C/C++</span>
-            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Blynk</span>
+            <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">IoT</span>
+            <span class="tag-lift bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Arduino IDE C/C++</span>
+            <span class="tag-lift bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Blynk</span>
         </div>
         <div class="mt-6 flex gap-4 flex-wrap">
             <a href="codecatfeed.ino" target="_blank" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">View Code</a>
@@ -299,9 +267,8 @@
         </div>
     </div>
 </div>
-                <article class="project-card flex flex-col md:flex-row bg-white/60 dark:bg-gray-800/60 
-                    border border-slate-200/80 dark:border-slate-200/10 rounded-xl shadow-lg 
-                    shadow-slate-300/10 dark:shadow-sky-500/10 overflow-hidden hover:shadow-2xl transition">
+                <article class="card-3d reveal-item reveal-item-delay-2 project-card flex flex-col md:flex-row bg-white/70 dark:bg-gray-800/70 
+                    border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden backdrop-blur-sm">
                     <img src="homepg.png" class="w-full md:w-1/4 h-auto rounded-lg object-cover" alt="รูปโปรเจกต์เครื่องให้อาหารแมว">
                     <div class="p-6 flex flex-col justify-between">
                         <div>
@@ -318,11 +285,11 @@
                             </div>
                         </div>
                         <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                            <span class="px-3 py-1 rounded-full font-medium" style="background-color:#8A2BE2; color:#fff;">React Native</span>
-                            <span class="px-3 py-1 rounded-full font-medium" style="background-color:#40E0D0; color:#000;">MySQL</span>
-                            <span class="px-3 py-1 rounded-full font-medium" style="background-color:#3EB489; color:#fff;">Tools Figma Canva</span>
-                            <span class="px-3 py-1 rounded-full font-medium" style="background-color:#FF6F61; color:#fff;">VS Code</span>
-                            <span class="px-3 py-1 rounded-full font-medium" style="background-color:#8A2BE2; color:#fff;">Android Studio</span>
+                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#8A2BE2; color:#fff;">React Native</span>
+                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#40E0D0; color:#000;">MySQL</span>
+                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#3EB489; color:#fff;">Tools Figma Canva</span>
+                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#FF6F61; color:#fff;">VS Code</span>
+                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#8A2BE2; color:#fff;">Android Studio</span>
                         </div>
                     </div>
                 </article>
@@ -333,17 +300,16 @@
                 <h3 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">Timeline</h3>
                 <p class="text-slate-500 dark:text-slate-400 mt-2">เส้นทางการศึกษาและประสบการณ์สั้น ๆ</p>
             </div>
-            <ol class="mt-10 border-l-2 border-sky-200 dark:border-sky-500/30 ml-4 space-y-8">
-                <li class="reveal pl-8 relative">
+            <ol class="mt-10 border-l-2 border-sky-200 dark:border-sky-500/30 ml-4 space-y-8 reveal">
+                <li class="reveal-item reveal-item-delay-1 pl-8 relative">
                     <span class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-gradient-to-br from-sky-400 to-violet-500 border-4 border-slate-50 dark:border-gray-900"></span>
                     <div class="text-sm text-slate-600 dark:text-slate-300 font-semibold">2016 - 2021 Navamindarajinuthit Benjamarachalai School</div>
                     <div class="text-slate-500 dark:text-slate-400 text-sm mt-1">Highschool</div>
                 </li>
-                <li class="reveal pl-8 relative">
+                <li class="reveal-item reveal-item-delay-2 pl-8 relative">
                     <span class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-gradient-to-br from-sky-400 to-violet-500 border-4 border-slate-50 dark:border-gray-900"></span>
                     <div class="text-sm text-slate-600 dark:text-slate-300 font-semibold">2022 - Present Phranakhon Rajabhat University</div>
                     <div class="text-slate-500 dark:text-slate-400 text-sm mt-1">Started in Computer Science and completed the first project.</div>
-
                 </li>
             </ol>
         </section>
@@ -353,25 +319,25 @@
                 <p class="text-slate-500 dark:text-slate-400 mt-2">สามารถติดต่อผมผ่านช่องทางด้านล่างนี้ได้เลยครับ</p>
             </div>
             <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 reveal">
-                <a href="mailto:wattana65101@gmail.com" class="flex items-center gap-4 p-5 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-sky-300 dark:hover:border-sky-400/50">
+                <a href="mailto:wattana65101@gmail.com" class="reveal-item reveal-item-delay-1 flex items-center gap-4 p-5 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-sky-300 dark:hover:border-sky-400/50">
                     <div class="p-3 rounded-full bg-sky-100 dark:bg-sky-500/20 text-sky-500 dark:text-sky-400 flex items-center justify-center w-12 h-12 shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                     </div>
                     <div><div class="font-semibold text-slate-800 dark:text-slate-200">Email</div><div class="text-slate-500 dark:text-slate-400 text-sm">wattana65101@gmail.com</div></div>
                 </a>
-                <a href="tel:+66650618582" class="flex items-center gap-4 p-5 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-emerald-300 dark:hover:border-emerald-400/50">
+                <a href="tel:+66650618582" class="reveal-item reveal-item-delay-2 flex items-center gap-4 p-5 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-emerald-300 dark:hover:border-emerald-400/50">
                     <div class="p-3 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-500 dark:text-emerald-400 flex items-center justify-center w-12 h-12 shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                     </div>
                     <div><div class="font-semibold text-slate-800 dark:text-slate-200">Phone</div><div class="text-slate-500 dark:text-slate-400 text-sm">0650618582</div></div>
                 </a>
-                <a href="https://line.me/ti/p/~mine5454" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-5 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-green-300 dark:hover:border-green-400/50">
+                <a href="https://line.me/ti/p/~mine5454" target="_blank" rel="noopener noreferrer" class="reveal-item reveal-item-delay-3 flex items-center gap-4 p-5 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-green-300 dark:hover:border-green-400/50">
                     <div class="p-3 rounded-full bg-green-100 dark:bg-green-500/20 flex items-center justify-center w-12 h-12 shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00B900" d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.039 1.085l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314z"/></svg>
                     </div>
                     <div><div class="font-semibold text-slate-800 dark:text-slate-200">Line</div><div class="text-slate-500 dark:text-slate-400 text-sm">ID Line mine5454</div></div>
                 </a>
-                <a href="https://github.com/Wattana65101" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-5 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-slate-400 dark:hover:border-slate-500">
+                <a href="https://github.com/Wattana65101" target="_blank" rel="noopener noreferrer" class="reveal-item reveal-item-delay-4 flex items-center gap-4 p-5 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-slate-400 dark:hover:border-slate-500">
                     <div class="p-3 rounded-full bg-slate-100 dark:bg-slate-600/30 flex items-center justify-center w-12 h-12 shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-slate-700 dark:text-slate-300" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                     </div>
@@ -380,6 +346,12 @@
             </div>
         </section>
     </main>
+
+    <!-- ปุ่มกลับขึ้นบน -->
+    <a href="#home" id="backToTop" class="back-to-top fixed bottom-6 right-6 z-50 p-3 rounded-full bg-white/90 dark:bg-gray-800/90 shadow-lg border border-slate-200/80 dark:border-slate-700/50 text-slate-600 dark:text-slate-300 hover:bg-sky-500 hover:text-white hover:border-sky-500 dark:hover:bg-sky-500 dark:hover:border-sky-500 transition-all duration-300 opacity-0 pointer-events-none" aria-label="กลับขึ้นบน">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+    </a>
+
     <footer class="bg-gray-100 dark:bg-gray-800/80 py-8 mt-12">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center text-sm text-slate-500 dark:text-slate-400">
             &copy; 2023 Wattana Manangam. All rights reserved.
@@ -387,17 +359,36 @@
     </footer>
     <script>
         // Toggle dark mode
-        document.getElementById('themeToggle').addEventListener('click', function() {
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                document.documentElement.classList.add('light');
-                localStorage.theme = 'light';
-            } else {
-                document.documentElement.classList.remove('light');
-                document.documentElement.classList.add('dark');
-                localStorage.theme = 'dark';
+        var themeBtn = document.getElementById('themeToggle');
+        if (themeBtn) {
+            themeBtn.addEventListener('click', function() {
+                themeBtn.classList.add('theme-toggle-spin');
+                setTimeout(function() { themeBtn.classList.remove('theme-toggle-spin'); }, 400);
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    document.documentElement.classList.add('light');
+                    localStorage.theme = 'light';
+                } else {
+                    document.documentElement.classList.remove('light');
+                    document.documentElement.classList.add('dark');
+                    localStorage.theme = 'dark';
+                }
+            });
+        }
+
+        // Back to top: แสดงเมื่อ scroll ลงมากกว่า 400px
+        var backToTop = document.getElementById('backToTop');
+        if (backToTop) {
+            function toggleBackToTop() {
+                if (window.scrollY > 400) {
+                    backToTop.classList.add('is-visible');
+                } else {
+                    backToTop.classList.remove('is-visible');
+                }
             }
-        });
+            window.addEventListener('scroll', toggleBackToTop);
+            window.addEventListener('load', toggleBackToTop);
+        }
         
         // Mobile menu toggle
         const mobileBtn = document.getElementById('mobileBtn');
@@ -413,23 +404,24 @@
             });
         });
 
-        // Smooth scrolling for anchor links
+        // Smooth scrolling for anchor links (รวมปุ่มกลับขึ้นบน)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                var href = this.getAttribute('href');
+                if (href === '#') return;
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                var target = document.querySelector(href);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
         });
         
-        // Reveal on scroll
+        // Reveal on scroll (reveal, reveal-left, reveal-right)
         function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
+            var reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+            var windowHeight = window.innerHeight;
+            var elementVisible = 220;
             for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add("show");
                 } else {
@@ -438,7 +430,42 @@
             }
         }
         window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal);
         reveal();
+
+        // Scroll progress bar
+        var progressBar = document.getElementById('progress');
+        if (progressBar) {
+            function updateProgress() {
+                var h = document.documentElement.scrollHeight - window.innerHeight;
+                progressBar.style.width = h <= 0 ? '0%' : (window.scrollY / h) * 100 + '%';
+            }
+            window.addEventListener('scroll', updateProgress);
+            window.addEventListener('load', updateProgress);
+        }
+
+        // แสงตามเมาส์ (โหมดสว่าง)
+        var mouseSpotlight = document.getElementById('mouseSpotlight');
+        if (mouseSpotlight) {
+            document.addEventListener('mousemove', function(e) {
+                mouseSpotlight.style.setProperty('--mouse-x', e.clientX + 'px');
+                mouseSpotlight.style.setProperty('--mouse-y', e.clientY + 'px');
+                if (document.documentElement.classList.contains('light')) mouseSpotlight.classList.add('is-active');
+            });
+            document.addEventListener('mouseleave', function() { mouseSpotlight.classList.remove('is-active'); });
+            if (document.documentElement.classList.contains('light')) mouseSpotlight.classList.add('is-active');
+        }
+
+        // Header ได้ class scrolled เมื่อ scroll ลง
+        var mainHeader = document.getElementById('mainHeader');
+        if (mainHeader) {
+            function toggleHeaderScrolled() {
+                if (window.scrollY > 80) mainHeader.classList.add('scrolled');
+                else mainHeader.classList.remove('scrolled');
+            }
+            window.addEventListener('scroll', toggleHeaderScrolled);
+            window.addEventListener('load', toggleHeaderScrolled);
+        }
     </script>
 </body>
 </html>
