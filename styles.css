@@ -742,8 +742,73 @@ body {
     opacity: 1;
 }
 
+/* --- Projects: แนวตั้ง เลื่อนตลอดเวลา เห็น 3 โปรเจกต์ --- */
+.projects-scroll-viewport {
+    position: relative;
+    height: 85vh;
+    max-height: 820px;
+    overflow: hidden;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.projects-scroll-track {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: projectsScrollUp 35s linear infinite;
+    will-change: transform;
+}
+
+.project-item {
+    flex-shrink: 0;
+    animation: projectItemIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.project-item:nth-child(1) { animation-delay: 0.1s; }
+.project-item:nth-child(2) { animation-delay: 0.2s; }
+.project-item:nth-child(3) { animation-delay: 0.3s; }
+.project-item:nth-child(4) { animation-delay: 0s; }
+.project-item:nth-child(5) { animation-delay: 0s; }
+.project-item:nth-child(6) { animation-delay: 0s; }
+
+@keyframes projectsScrollUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+}
+
+@keyframes projectItemIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes pulse-slow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 2.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .projects-scroll-track {
+        animation: none;
+    }
+    .project-item {
+        animation: none;
+    }
+}
+
 /* --- 3D Modern: Project section & cards --- */
-#projects .flex.flex-col {
+#projects .flex.flex-col,
+#projects .projects-scroll-viewport {
     perspective: 1200px;
 }
 

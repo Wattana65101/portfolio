@@ -223,8 +223,10 @@
                 <h3 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">My Projects</h3>
                 <p class="text-slate-500 dark:text-slate-400 mt-2">ผลงานที่เด่นและเทคโนโลยีที่ใช้</p>
             </div>
-            <div class="mt-10 flex flex-col gap-8 reveal">
-<div class="card-3d reveal-item reveal-item-delay-1 bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-4 md:flex gap-4 backdrop-blur-sm">
+            <div class="projects-scroll-viewport mt-10 reveal">
+                <div class="projects-scroll-track">
+                    <div class="project-item">
+<div class="card-3d bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-4 md:flex gap-4 backdrop-blur-sm">
     <img src="cachedImage.png" alt="รูปโปรเจกต์เครื่องให้อาหารแมว" class="w-full md:w-1/4 h-auto rounded-lg object-cover">
     <div class="flex-1 text-slate-800 dark:text-slate-100">
         <h3 class="text-xl font-bold mb-4">
@@ -267,7 +269,9 @@
         </div>
     </div>
 </div>
-                <article class="card-3d reveal-item reveal-item-delay-2 project-card flex flex-col md:flex-row bg-white/70 dark:bg-gray-800/70 
+                    </div>
+                    <div class="project-item">
+                <article class="card-3d project-card flex flex-col md:flex-row bg-white/70 dark:bg-gray-800/70 
                     border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden backdrop-blur-sm">
                     <img src="homepg.png" class="w-full md:w-1/4 h-auto rounded-lg object-cover" alt="รูปโปรเจกต์เครื่องให้อาหารแมว">
                     <div class="p-6 flex flex-col justify-between">
@@ -293,6 +297,56 @@
                         </div>
                     </div>
                 </article>
+                    </div>
+                    <div class="project-item">
+                        <div class="card-3d bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-8 md:flex gap-6 backdrop-blur-sm border-dashed">
+                            <div class="flex-1 flex flex-col items-center justify-center text-center py-12 min-h-[200px]">
+                                <div class="w-20 h-20 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4 animate-pulse-slow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-slate-400 dark:text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                                </div>
+                                <h4 class="text-lg font-bold text-slate-500 dark:text-slate-400">โปรเจกต์ถัดไป</h4>
+                                <p class="text-sm text-slate-400 dark:text-slate-500 mt-1">กำลังจะมาเร็วๆ นี้</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ซ้ำสำหรับ loop เลื่อนไม่ขาด -->
+                    <div class="project-item">
+<div class="card-3d bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-4 md:flex gap-4 backdrop-blur-sm">
+    <img src="cachedImage.png" alt="รูปโปรเจกต์เครื่องให้อาหารแมว" class="w-full md:w-1/4 h-auto rounded-lg object-cover">
+    <div class="flex-1 text-slate-800 dark:text-slate-100">
+        <h3 class="text-xl font-bold mb-4">โปรเจคเครื่องให้อาหารแมวอัตโนมัติควบคุมผ่านมือถือ (Mobile Application: Blynk)</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-300">ESP8266/ESP32 • Blynk • Servo Motor</p>
+        <div class="mt-4 flex flex-wrap gap-2">
+            <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">IoT</span>
+            <span class="tag-lift bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Blynk</span>
+        </div>
+    </div>
+</div>
+                    </div>
+                    <div class="project-item">
+                <article class="card-3d project-card flex flex-col md:flex-row bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden backdrop-blur-sm">
+                    <img src="homepg.png" class="w-full md:w-1/4 h-auto rounded-lg object-cover" alt="Track Spend">
+                    <div class="p-6 flex flex-col justify-between">
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-slate-100">MOBILE APPLICATION TRACK SPEND (กำลังพัฒนา)</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">React Native • MySQL • กราฟรายรับ-รายจ่าย</p>
+                        <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#8A2BE2; color:#fff;">React Native</span>
+                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#40E0D0; color:#000;">MySQL</span>
+                        </div>
+                    </div>
+                </article>
+                    </div>
+                    <div class="project-item">
+                        <div class="card-3d bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-8 border-dashed backdrop-blur-sm">
+                            <div class="flex flex-col items-center justify-center text-center py-12 min-h-[200px]">
+                                <div class="w-20 h-20 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4 animate-pulse-slow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-slate-400 dark:text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                                </div>
+                                <p class="text-sm text-slate-400 dark:text-slate-500">โปรเจกต์ถัดไป กำลังจะมา</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <section id="timeline" class="max-w-3xl mx-auto px-6 lg:px-8 py-16">
