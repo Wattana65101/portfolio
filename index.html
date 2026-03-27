@@ -221,132 +221,129 @@
         <section id="projects" class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
             <div class="reveal text-center">
                 <h3 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">My Projects</h3>
-                <p class="text-slate-500 dark:text-slate-400 mt-2">ผลงานที่เด่นและเทคโนโลยีที่ใช้</p>
+                <p class="text-slate-500 dark:text-slate-400 mt-2">เลื่อนขวาเพื่อดูโปรเจกต์ และกดที่การ์ดเพื่อดูข้อมูลเต็ม</p>
             </div>
-            <div class="projects-scroll-viewport mt-10 reveal">
-                <div class="projects-scroll-track">
-                    <div class="project-item">
-<div class="card-3d bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-4 md:flex gap-4 backdrop-blur-sm">
-    <img src="cachedImage.png" alt="รูปโปรเจกต์เครื่องให้อาหารแมว" class="w-full md:w-1/4 h-auto rounded-lg object-cover">
-    <div class="flex-1 text-slate-800 dark:text-slate-100">
-        <h3 class="text-xl font-bold mb-4">
-            โปรเจคเครื่องให้อาหารแมวอัตโนมัติควบคุมผ่านมือถือ (Mobile Application: Blynk)
-        </h3>
-        <ul class="list-disc pl-5 space-y-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            <li>
-                <strong>การควบคุมการจ่ายอาหาร:</strong>
-                <ul class="list-disc pl-5 mt-1 space-y-1">
-                    <li>ใช้ ESP8266/ESP32 ควบคุมการทำงานของเซอร์โวมอเตอร์หรือมอเตอร์ DC</li>
-                    <li>สามารถตั้งเวลา หรือสั่งงานผ่าน Wi-Fi (Blynk Web หรือ Mobile Application)</li>
-                </ul>
-            </li>
-            <li>
-                <strong>การจ่ายอาหารจริง:</strong>
-                <ul class="list-disc pl-5 mt-1 space-y-1">
-                    <li>เมื่อถึงเวลาที่ตั้งไว้ หรือเมื่อผู้ใช้สั่งการผ่านแอป</li>
-                </ul>
-            </li>
-            <li>
-                <strong>อุปกรณ์ที่ใช้ในโปรเจกต์:</strong>
-                <ul class="list-disc pl-5 mt-1 space-y-1">
-                    <li>ESP8266 บอร์ดควบคุมหลัก ใช้เชื่อมต่อ Wi-Fi และควบคุมระบบ</li>
-                    <li>Servo Motor SG90 สำหรับเปิด-ปิดช่องให้อาหาร</li>
-                    <li>ถังเก็บอาหาร (พลาสติกใส)</li>
-                    <li>ถาดรองอาหาร</li>
-                    <li>แผ่นพลาสวูด สำหรับสร้างโครงเครื่อง</li>
-                    <li>ระบบควบคุมผ่านแอป Blynk บนมือถือ</li>
-                </ul>
-            </li>
-        </ul>
-        <div class="mt-4 flex flex-wrap gap-2">
-            <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">IoT</span>
-            <span class="tag-lift bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Arduino IDE C/C++</span>
-            <span class="tag-lift bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Blynk</span>
-        </div>
-        <div class="mt-6 flex gap-4 flex-wrap">
-            <a href="codecatfeed.ino" target="_blank" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">View Code</a>
-            <a href="โครงงานระบบให้อาหารสัตว์อัตโนมัติ.pptx.pdf" target="_blank" class="px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition">Document</a>
-        </div>
-    </div>
-</div>
-                    </div>
-                    <div class="project-item">
-                <article class="card-3d project-card flex flex-col md:flex-row bg-white/70 dark:bg-gray-800/70 
-                    border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden backdrop-blur-sm">
-                    <img src="homepg.png" class="w-full md:w-1/4 h-auto rounded-lg object-cover" alt="รูปโปรเจกต์เครื่องให้อาหารแมว">
-                    <div class="p-6 flex flex-col justify-between">
-                        <div>
-                            <h4 class="text-lg font-bold text-slate-900 dark:text-slate-100">MOBILE APPLICATION TRACK SPEND (กำลังพัฒนา)</h4>
-                            <div class="text-slate-500 dark:text-slate-400 mt-2 text-sm space-y-2">
-                                <p><strong># จุดเด่นของแอป</strong></p>
-                                <ul class="list-disc pl-5 space-y-2">
-                                    <li><strong>ใช้งานง่าย บันทึกได้ทันที</strong> เพียงใส่จำนวนเงิน เลือกหมวดหมู่ และบันทึก ก็สามารถเก็บข้อมูลรายรับ–รายจ่ายได้อย่างเป็นระบบ</li>
-                                    <li><strong>สรุปผลชัดเจนด้วยกราฟ</strong> ข้อมูลทั้งหมดถูกแสดงออกมาในรูปแบบกราฟและแผนภูมิ ทำให้ผู้ใช้มองเห็นพฤติกรรมการใช้เงินได้ทันที เช่น หมวดหมู่ไหนใช้จ่ายมากที่สุด หรือรายจ่ายในแต่ละเดือนเท่าไร</li>
-                                    <li><strong>ระบบงบประมาณ (Budget Control)</strong> ผู้ใช้สามารถกำหนดงบรายเดือน หรือกำหนดงบเฉพาะหมวด เช่น “ค่าอาหารไม่เกิน 3,000 บาท/เดือน” เมื่อใกล้ถึงขีดจำกัด แอปจะแจ้งเตือนให้รู้ตัวก่อนเงินเกินงบ </li>
-                                    <li><strong>ค้นหาและกรองข้อมูลได้สะดวก</strong> หากต้องการดูย้อนหลังว่าสิ้นเดือนที่แล้วใช้จ่ายไปกับอะไร สามารถค้นหาตามหมวดหมู่ วันที่ หรือคำอธิบายได้ทันที</li>
-                                    <li><strong>ปรับแต่งหน้าตาได้ตามใจ</strong> ผู้ใช้เลือกธีม สี และรูปแบบการแสดงผลได้เอง เพื่อให้การใช้งานสนุกและไม่จำเจ </li>
-                                </ul>
+            <div class="projects-horizontal-wrap mt-10 reveal">
+                <div class="projects-horizontal-track" aria-label="Project list">
+                    <button type="button" class="project-vertical-card" data-project-detail="project-detail-catfeed">
+                        <img src="cachedImage.png" alt="โปรเจกต์เครื่องให้อาหารแมว" class="project-vertical-image">
+                        <div class="project-vertical-body">
+                            <h4 class="project-vertical-title">เครื่องให้อาหารแมวอัตโนมัติ</h4>
+                            <p class="project-vertical-desc">IoT + Mobile App (Blynk) ควบคุมผ่านมือถือ</p>
+                            <div class="project-vertical-tags">
+                                <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-1 rounded">IoT</span>
+                                <span class="tag-lift bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-1 rounded">Blynk</span>
                             </div>
                         </div>
-                        <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#8A2BE2; color:#fff;">React Native</span>
-                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#40E0D0; color:#000;">MySQL</span>
-                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#3EB489; color:#fff;">Tools Figma Canva</span>
-                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#FF6F61; color:#fff;">VS Code</span>
-                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#8A2BE2; color:#fff;">Android Studio</span>
-                        </div>
-                    </div>
-                </article>
-                    </div>
-                    <div class="project-item">
-                        <div class="card-3d bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-8 md:flex gap-6 backdrop-blur-sm border-dashed">
-                            <div class="flex-1 flex flex-col items-center justify-center text-center py-12 min-h-[200px]">
-                                <div class="w-20 h-20 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4 animate-pulse-slow">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-slate-400 dark:text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
-                                </div>
-                                <h4 class="text-lg font-bold text-slate-500 dark:text-slate-400">โปรเจกต์ถัดไป</h4>
-                                <p class="text-sm text-slate-400 dark:text-slate-500 mt-1">กำลังจะมาเร็วๆ นี้</p>
+                    </button>
+                    <button
+                        type="button"
+                        class="project-vertical-card"
+                        data-project-detail="project-detail-trackspend">
+                        <img src="trackspend-1.png" alt="โปรเจกต์ Track Spend" class="project-vertical-image">
+                        <div class="project-vertical-body">
+                            <h4 class="project-vertical-title">Track Spend (กำลังพัฒนา)</h4>
+                            <p class="project-vertical-desc">แอปบันทึกรายรับรายจ่าย พร้อมกราฟสรุป และปรับธีมสีได้</p>
+                            <div class="project-vertical-tags">
+                                <span class="tag-lift px-2.5 py-1 rounded text-xs font-medium" style="background-color:#8A2BE2; color:#fff;">React Native</span>
+                                <span class="tag-lift px-2.5 py-1 rounded text-xs font-medium" style="background-color:#40E0D0; color:#000;">MySQL</span>
                             </div>
                         </div>
-                    </div>
-                    <!-- ซ้ำสำหรับ loop เลื่อนไม่ขาด -->
-                    <div class="project-item">
-<div class="card-3d bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-4 md:flex gap-4 backdrop-blur-sm">
-    <img src="cachedImage.png" alt="รูปโปรเจกต์เครื่องให้อาหารแมว" class="w-full md:w-1/4 h-auto rounded-lg object-cover">
-    <div class="flex-1 text-slate-800 dark:text-slate-100">
-        <h3 class="text-xl font-bold mb-4">โปรเจคเครื่องให้อาหารแมวอัตโนมัติควบคุมผ่านมือถือ (Mobile Application: Blynk)</h3>
-        <p class="text-sm text-slate-600 dark:text-slate-300">ESP8266/ESP32 • Blynk • Servo Motor</p>
-        <div class="mt-4 flex flex-wrap gap-2">
-            <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">IoT</span>
-            <span class="tag-lift bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Blynk</span>
-        </div>
-    </div>
-</div>
-                    </div>
-                    <div class="project-item">
-                <article class="card-3d project-card flex flex-col md:flex-row bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden backdrop-blur-sm">
-                    <img src="homepg.png" class="w-full md:w-1/4 h-auto rounded-lg object-cover" alt="Track Spend">
-                    <div class="p-6 flex flex-col justify-between">
-                        <h4 class="text-lg font-bold text-slate-900 dark:text-slate-100">MOBILE APPLICATION TRACK SPEND (กำลังพัฒนา)</h4>
-                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">React Native • MySQL • กราฟรายรับ-รายจ่าย</p>
-                        <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#8A2BE2; color:#fff;">React Native</span>
-                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#40E0D0; color:#000;">MySQL</span>
-                        </div>
-                    </div>
-                </article>
-                    </div>
-                    <div class="project-item">
-                        <div class="card-3d bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-8 border-dashed backdrop-blur-sm">
-                            <div class="flex flex-col items-center justify-center text-center py-12 min-h-[200px]">
-                                <div class="w-20 h-20 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4 animate-pulse-slow">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-slate-400 dark:text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
-                                </div>
-                                <p class="text-sm text-slate-400 dark:text-slate-500">โปรเจกต์ถัดไป กำลังจะมา</p>
+                    </button>
+                    <button type="button" class="project-vertical-card" data-project-detail="project-detail-ibexam">
+                        <img src="ibexam.png" alt="IB Online Examination System" class="project-vertical-image">
+                        <div class="project-vertical-body">
+                            <h4 class="project-vertical-title">JIB Online Examination System</h4>
+                            <p class="project-vertical-desc">Online Exam + Admin Dashboard (รวมตรวจข้ออัตนัยด้วย AI)</p>
+                            <div class="project-vertical-tags">
+                                <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-1 rounded">Online Exam</span>
+                                <span class="tag-lift bg-violet-100 text-violet-800 text-xs font-medium px-2.5 py-1 rounded">AI (Gemini)</span>
                             </div>
                         </div>
-                    </div>
+                    </button>
                 </div>
+            </div>
+
+            <div class="hidden">
+                <article id="project-detail-catfeed">
+                    <h4 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-slate-100">โปรเจกต์เครื่องให้อาหารแมวอัตโนมัติควบคุมผ่านมือถือ</h4>
+                    <ul class="list-disc pl-5 mt-4 space-y-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                        <li>ใช้ ESP8266/ESP32 ควบคุม Servo Motor พร้อมเชื่อมต่อ Wi-Fi</li>
+                        <li>ตั้งเวลาให้อาหาร และสั่งจ่ายอาหารจากมือถือผ่าน Blynk</li>
+                        <li>โครงงานทำจากพลาสวูด พร้อมถังเก็บและถาดรองอาหาร</li>
+                    </ul>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-1 rounded">IoT</span>
+                        <span class="tag-lift bg-red-100 text-red-800 text-xs font-medium px-2.5 py-1 rounded">Arduino IDE C/C++</span>
+                        <span class="tag-lift bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-1 rounded">Blynk</span>
+                    </div>
+                    <div class="mt-6 flex gap-3 flex-wrap">
+                        <a href="codecatfeed.ino" target="_blank" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">View Code</a>
+                        <a href="โครงงานระบบให้อาหารสัตว์อัตโนมัติ.pptx.pdf" target="_blank" class="px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition">Document</a>
+                    </div>
+                </article>
+                <article id="project-detail-trackspend">
+                    <h4 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-slate-100">MOBILE APPLICATION TRACK SPEND (กำลังพัฒนา)</h4>
+                    <div class="project-modal-gallery" data-images="trackspend-1.png,trackspend-2.png,trackspend-3.png,trackspend-4.png,trackspend-5.png,trackspend-6.png,trackspend-7.png,trackspend-8.png">
+                        <div class="project-modal-gallery-main">
+                            <img src="trackspend-1.png" alt="TrackSpend Screens" class="project-modal-gallery-image">
+                            <button type="button" class="project-modal-gallery-nav project-modal-gallery-prev" data-gallery-dir="-1" aria-label="รูปก่อนหน้า">&#10094;</button>
+                            <button type="button" class="project-modal-gallery-nav project-modal-gallery-next" data-gallery-dir="1" aria-label="รูปรถัดไป">&#10095;</button>
+                        </div>
+                    </div>
+                    <ul class="list-disc pl-5 mt-4 space-y-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                        <li>บันทึกรายรับรายจ่ายได้ง่าย พร้อมแยกหมวดหมู่ชัดเจน</li>
+                        <li>มีกราฟและสถิติช่วยวิเคราะห์พฤติกรรมการใช้เงิน</li>
+                        <li>รองรับระบบงบประมาณและแจ้งเตือนเมื่อใกล้เกินงบ</li>
+                    </ul>
+                    <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#8A2BE2; color:#fff;">React Native</span>
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#40E0D0; color:#000;">MySQL</span>
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#FF6F61; color:#fff;">VS Code</span>
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#8A2BE2; color:#fff;">Android Studio</span>
+                    </div>
+                </article>
+                <article id="project-detail-ibexam">
+                    <h4 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-slate-100">JIB Online Examination System</h4>
+
+                    <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                        ระบบสอบออนไลน์สำหรับผู้สมัครงานและพนักงาน พร้อมฝั่ง `Admin` สำหรับจัดการข้อสอบ/คำถาม/ตัวเลือก ดูผลและสถิติแบบกราฟ และฝั่งผู้ใช้สำหรับเข้าสอบ ส่งคำตอบและดูคะแนน (รวมข้อสอบอัตนัยที่ตรวจด้วย AI)
+                    </p>
+
+                    <h5 class="mt-5 text-sm font-semibold text-slate-900 dark:text-slate-100">Key Highlights</h5>
+                    <ul class="list-disc pl-5 mt-3 space-y-1 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                        <li>พัฒนา `Admin Dashboard` แสดงสถิติผลสอบ พร้อมกราฟรายวัน/รายเดือน</li>
+                        <li>สร้าง/จัดการ `Exam`, `Question`, `Choices` และ `import` ข้อสอบ/คำถามจากข้อมูลในระบบ</li>
+                        <li>รองรับข้อสอบอัตนัย: เมื่อผู้ใช้ส่งคำตอบ ระบบให้ AI (Google Gemini) ช่วยตรวจแบบ background</li>
+                        <li>รองรับ EQ exam และโครงสร้างแบบ merged exam (เก็บ snapshot ผ่าน <code class="px-1 rounded bg-slate-100 dark:bg-slate-800">merged_from</code> พร้อมคัดกรอง/คำนวณตามกลุ่ม)</li>
+                        <li>ทำสื่อ/รูปประกอบคำถามด้วยขั้นตอนประมวลผล (ย่อ/จัดรูป) ก่อนใช้งานในระบบ</li>
+                        <li>จัดการผลสอบและประวัติด้วยฐานข้อมูล (เช่น `exam_results` เก็บ snapshot ของข้อมูลที่จำเป็น)</li>
+                        <li>มี `node-cron` ดูแลข้อมูลอัตโนมัติ (ลบข้อมูลเก่าตามเงื่อนไข และคุม timezone)</li>
+                    </ul>
+
+                    <h5 class="mt-5 text-sm font-semibold text-slate-900 dark:text-slate-100">Tech Stack</h5>
+                    <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#e0f2fe; color:#075985;">Node.js</span>
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#f1e8ff; color:#6d28d9;">Express</span>
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#dcfce7; color:#166534;">Sequelize (MySQL)</span>
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#fff7ed; color:#9a3412;">JWT</span>
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#f3e8ff; color:#6b21a8;">Google Gemini</span>
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#e0f2fe; color:#0369a1;">sharp</span>
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#ecfccb; color:#4d7c0f;">xlsx</span>
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#ffe4e6; color:#9f1239;">Next.js (App Router)</span>
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#dbeafe; color:#1e3a8a;">React</span>
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#ede9fe; color:#5b21b6;">Ant Design</span>
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#ccfbf1; color:#0f766e;">Recharts</span>
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#fef9c3; color:#854d0e;">dayjs</span>
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#eff6ff; color:#1d4ed8;">axios</span>
+                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#f5f5f4; color:#27272a;">Docker Compose</span>
+                    </div>
+
+                    <h5 class="mt-5 text-sm font-semibold text-slate-900 dark:text-slate-100">Resume/Portfolio sentence</h5>
+                    <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                        พัฒนาโปรเจค Online Examination System ที่มี Admin Dashboard สำหรับจัดการข้อสอบและติดตามสถิติ พร้อมระบบตรวจข้ออัตนัยด้วย AI (Google Gemini) และรองรับการนำเข้า/จัดการคำถาม รวมถึงการคำนวณคะแนนและบันทึกผลการสอบลง MySQL
+                    </p>
+                </article>
             </div>
         </section>
         <section id="timeline" class="max-w-3xl mx-auto px-6 lg:px-8 py-16">
@@ -400,6 +397,13 @@
             </div>
         </section>
     </main>
+    <div id="projectModal" class="project-modal" aria-hidden="true">
+        <div class="project-modal-overlay" data-close-project-modal></div>
+        <div class="project-modal-content">
+            <button type="button" class="project-modal-close" data-close-project-modal aria-label="ปิดหน้าต่างรายละเอียด">&times;</button>
+            <div id="projectModalBody"></div>
+        </div>
+    </div>
 
     <!-- ปุ่มกลับขึ้นบน -->
     <a href="#home" id="backToTop" class="back-to-top fixed bottom-6 right-6 z-50 p-3 rounded-full bg-white/90 dark:bg-gray-800/90 shadow-lg border border-slate-200/80 dark:border-slate-700/50 text-slate-600 dark:text-slate-300 hover:bg-sky-500 hover:text-white hover:border-sky-500 dark:hover:bg-sky-500 dark:hover:border-sky-500 transition-all duration-300 opacity-0 pointer-events-none" aria-label="กลับขึ้นบน">
@@ -519,6 +523,90 @@
             }
             window.addEventListener('scroll', toggleHeaderScrolled);
             window.addEventListener('load', toggleHeaderScrolled);
+        }
+
+        // Project cards: open detail modal
+        var projectModal = document.getElementById('projectModal');
+        var projectModalBody = document.getElementById('projectModalBody');
+        var projectCards = document.querySelectorAll('.project-vertical-card');
+        var projectModalClosers = document.querySelectorAll('[data-close-project-modal]');
+
+        function initProjectModalGalleries(root) {
+            var galleries = root.querySelectorAll('.project-modal-gallery');
+            galleries.forEach(function(gallery) {
+                var data = gallery.getAttribute('data-images');
+                if (!data) return;
+                var images = data.split(',').map(function(s) { return s.trim(); }).filter(Boolean);
+                if (!images.length) return;
+                var idx = 0;
+                var imgEl = gallery.querySelector('.project-modal-gallery-image');
+                if (!imgEl) return;
+
+                function show(i) {
+                    idx = (i + images.length) % images.length;
+                    imgEl.src = images[idx];
+                }
+
+                gallery.querySelectorAll('.project-modal-gallery-nav').forEach(function(btn) {
+                    btn.addEventListener('click', function(ev) {
+                        ev.stopPropagation();
+                        var dir = parseInt(btn.getAttribute('data-gallery-dir') || '0', 10) || 0;
+                        show(idx + dir);
+                    });
+                });
+
+                show(0);
+            });
+        }
+
+        function openProjectModal(detailId) {
+            if (!projectModal || !projectModalBody) return;
+            var detail = document.getElementById(detailId);
+            if (!detail) return;
+            projectModalBody.innerHTML = detail.innerHTML;
+            initProjectModalGalleries(projectModalBody);
+            projectModal.classList.add('is-open');
+            projectModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            if (!projectModal || !projectModalBody) return;
+            projectModal.classList.remove('is-open');
+            projectModal.setAttribute('aria-hidden', 'true');
+            projectModalBody.innerHTML = '';
+            document.body.style.overflow = '';
+        }
+
+        projectCards.forEach(function(card) {
+            card.addEventListener('click', function() {
+                var detailId = card.getAttribute('data-project-detail');
+                openProjectModal(detailId);
+            });
+        });
+
+        projectModalClosers.forEach(function(btn) {
+            btn.addEventListener('click', closeProjectModal);
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeProjectModal();
+        });
+
+        // Horizontal scroll within the projects area (wheel -> scrollLeft)
+        var projectsWrap = document.querySelector('.projects-horizontal-wrap');
+        if (projectsWrap) {
+            projectsWrap.addEventListener('wheel', function(e) {
+                var maxScroll = projectsWrap.scrollWidth - projectsWrap.clientWidth;
+                if (maxScroll <= 0) return; // no horizontal scroll needed
+                // Only convert vertical wheel to horizontal movement
+                if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
+                var dir = e.deltaY > 0 ? 1 : -1;
+                if (dir > 0 && projectsWrap.scrollLeft >= maxScroll - 2) return;
+                if (dir < 0 && projectsWrap.scrollLeft <= 2) return;
+                e.preventDefault();
+                projectsWrap.scrollLeft += e.deltaY;
+            }, { passive: false });
         }
     </script>
 </body>

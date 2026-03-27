@@ -742,50 +742,194 @@ body {
     opacity: 1;
 }
 
-/* --- Projects: แนวตั้ง เลื่อนตลอดเวลา เห็น 3 โปรเจกต์ --- */
-.projects-scroll-viewport {
-    position: relative;
-    height: 85vh;
-    max-height: 820px;
-    overflow: hidden;
-    mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+/* --- Projects: แนวตั้ง เลื่อนไปขวา + คลิกดูรายละเอียด --- */
+.projects-horizontal-wrap {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 0.75rem;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
 }
 
-.projects-scroll-track {
+.projects-horizontal-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    min-width: 0;
+    padding: 0.25rem 1rem;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+@keyframes projectsScrollX {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.project-vertical-card {
+    width: 330px;
+    min-height: 500px;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(8px);
+    overflow: hidden;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    animation: projectsScrollUp 35s linear infinite;
-    will-change: transform;
+    cursor: pointer;
+    transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+    box-shadow: 0 10px 26px -16px rgba(2, 132, 199, 0.45);
+    scroll-snap-align: start;
 }
 
-.project-item {
-    flex-shrink: 0;
-    animation: projectItemIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+.projects-horizontal-wrap::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
 }
 
-.project-item:nth-child(1) { animation-delay: 0.1s; }
-.project-item:nth-child(2) { animation-delay: 0.2s; }
-.project-item:nth-child(3) { animation-delay: 0.3s; }
-.project-item:nth-child(4) { animation-delay: 0s; }
-.project-item:nth-child(5) { animation-delay: 0s; }
-.project-item:nth-child(6) { animation-delay: 0s; }
-
-@keyframes projectsScrollUp {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
+.dark .project-vertical-card {
+    background: rgba(31, 41, 55, 0.7);
+    border-color: rgba(148, 163, 184, 0.18);
+    box-shadow: 0 10px 26px -16px rgba(56, 189, 248, 0.35);
 }
 
-@keyframes projectItemIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.98);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+.project-vertical-card:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 20px 42px -18px rgba(14, 116, 144, 0.5);
+    border-color: rgba(56, 189, 248, 0.7);
+}
+
+.project-vertical-card:hover .project-vertical-image {
+    transform: scale(1.06);
+    filter: saturate(1.25) contrast(1.1) brightness(1.08);
+}
+
+.dark .project-vertical-card:hover {
+    box-shadow: 0 20px 42px -18px rgba(56, 189, 248, 0.45);
+}
+
+.project-vertical-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+    filter: saturate(1.14) contrast(1.05) brightness(1.03);
+    transition: transform 0.35s ease, filter 0.35s ease;
+    box-shadow: inset 0 -38px 52px -42px rgba(15, 23, 42, 0.75);
+}
+
+.project-modal-gallery-main,
+.project-modal-gallery-image {
+    border-radius: 0.75rem;
+}
+
+.project-modal-gallery-main {
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.project-modal-gallery-image {
+    width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+    background: radial-gradient(circle at top, rgba(148, 163, 184, 0.15), transparent 60%);
+}
+
+.project-modal-gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    background: rgba(15, 23, 42, 0.35);
+    color: #e5e7eb;
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 0.25s ease, background 0.2s ease;
+}
+
+.project-modal-gallery-prev {
+    left: 0.5rem;
+}
+
+.project-modal-gallery-next {
+    right: 0.5rem;
+}
+
+.project-modal-gallery-main:hover .project-modal-gallery-nav {
+    opacity: 1;
+}
+
+.project-modal-gallery-nav:hover {
+    background: rgba(15, 23, 42, 0.6);
+}
+
+.project-vertical-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(226, 232, 240, 0.8), rgba(186, 230, 253, 0.8));
+}
+
+.dark .project-vertical-placeholder {
+    background: linear-gradient(135deg, rgba(51, 65, 85, 0.8), rgba(30, 41, 59, 0.9));
+}
+
+.project-vertical-body {
+    padding: 0.85rem 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.project-vertical-title {
+    font-size: 1rem;
+    line-height: 1.45;
+    font-weight: 700;
+    color: #0f172a;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+}
+
+.dark .project-vertical-title {
+    color: #f8fafc;
+}
+
+.project-vertical-desc {
+    font-size: 0.82rem;
+    color: #475569;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+}
+
+.dark .project-vertical-desc {
+    color: #cbd5e1;
+}
+
+.project-vertical-tags {
+    margin-top: 0.35rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 @keyframes pulse-slow {
@@ -798,18 +942,77 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .projects-scroll-track {
-        animation: none;
+    .project-vertical-card {
+        transition: none;
     }
-    .project-item {
+    .projects-horizontal-track {
         animation: none;
     }
 }
 
 /* --- 3D Modern: Project section & cards --- */
 #projects .flex.flex-col,
-#projects .projects-scroll-viewport {
+#projects .projects-horizontal-wrap {
     perspective: 1200px;
+}
+
+.project-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    display: none;
+}
+
+.project-modal.is-open {
+    display: block;
+}
+
+.project-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.55);
+    backdrop-filter: blur(2px);
+}
+
+.project-modal-content {
+    position: relative;
+    max-width: 860px;
+    max-height: 86vh;
+    overflow: auto;
+    margin: 6vh auto;
+    background: rgba(255, 255, 255, 0.96);
+    color: #0f172a;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 24px 48px -20px rgba(15, 23, 42, 0.45);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.dark .project-modal-content {
+    background: rgba(17, 24, 39, 0.97);
+    color: #e2e8f0;
+    border-color: rgba(148, 163, 184, 0.2);
+}
+
+.project-modal-close {
+    position: sticky;
+    top: 0;
+    float: right;
+    margin-left: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    background: #e2e8f0;
+    color: #0f172a;
+    font-size: 1.2rem;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+}
+
+.dark .project-modal-close {
+    background: #334155;
+    color: #e2e8f0;
 }
 
 .card-3d {
