@@ -266,9 +266,13 @@
                 <article id="project-detail-catfeed">
                     <h4 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-slate-100">โปรเจกต์เครื่องให้อาหารแมวอัตโนมัติควบคุมผ่านมือถือ</h4>
                     <ul class="list-disc pl-5 mt-4 space-y-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                        <li>ใช้ ESP8266/ESP32 ควบคุม Servo Motor พร้อมเชื่อมต่อ Wi-Fi</li>
-                        <li>ตั้งเวลาให้อาหาร และสั่งจ่ายอาหารจากมือถือผ่าน Blynk</li>
-                        <li>โครงงานทำจากพลาสวูด พร้อมถังเก็บและถาดรองอาหาร</li>
+                        <li> วัสดุที่ใช้  </li>
+                        <p>1. บอร์ดESP8266</p>
+                        <p>2. Servo Motor</p>
+                        <p>3. ถังเก็บอาหาร</p>
+                        <p>4. แผ่นพลาสวูด</p>
+                        <li> ขั้นตอนการทำงาน </li>
+                        <p>สั่งการทำงานผ่าน Blynk บนมือถือ ตั้งเวลาให้อาหาร และสั่งจ่ายอาหารจากมือถือผ่าน Blynk เเละ ใช้บอร์ด ESP8266 ควบคุม Servo Motor ให้เปิดถาดอาหารให้ทำงานตามเวลาที่ตั้งไว้ </p>
                     </ul>
                     <div class="mt-4 flex flex-wrap gap-2">
                         <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-1 rounded">IoT</span>
@@ -310,13 +314,13 @@
 
                     <h5 class="mt-5 text-sm font-semibold text-slate-900 dark:text-slate-100">Key Highlights</h5>
                     <ul class="list-disc pl-5 mt-3 space-y-1 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                        <li>พัฒนา `Admin Dashboard` แสดงสถิติผลสอบ พร้อมกราฟรายวัน/รายเดือน</li>
-                        <li>สร้าง/จัดการ `Exam`, `Question`, `Choices` และ `import` ข้อสอบ/คำถามจากข้อมูลในระบบ</li>
-                        <li>รองรับข้อสอบอัตนัย: เมื่อผู้ใช้ส่งคำตอบ ระบบให้ AI (Google Gemini) ช่วยตรวจแบบ background</li>
+                        <li>พัฒนา Admin Dashboard แสดงสถิติผลสอบ พร้อมกราฟรายวัน/รายเดือน</li>
+                        <li>สร้างจัดการ Exam, Question, Chioces และ import ข้อสอบ/คำถามจากข้อมูลในระบบ</li>
+                        <li>รองรับข้อสอบอัตนัย เมื่อผู้ใช้ส่งคำตอบ ระบบให้ AI (Google Gemini) ช่วยตรวจแบบ background</li>
                         <li>รองรับ EQ exam และโครงสร้างแบบ merged exam (เก็บ snapshot ผ่าน <code class="px-1 rounded bg-slate-100 dark:bg-slate-800">merged_from</code> พร้อมคัดกรอง/คำนวณตามกลุ่ม)</li>
                         <li>ทำสื่อ/รูปประกอบคำถามด้วยขั้นตอนประมวลผล (ย่อ/จัดรูป) ก่อนใช้งานในระบบ</li>
-                        <li>จัดการผลสอบและประวัติด้วยฐานข้อมูล (เช่น `exam_results` เก็บ snapshot ของข้อมูลที่จำเป็น)</li>
-                        <li>มี `node-cron` ดูแลข้อมูลอัตโนมัติ (ลบข้อมูลเก่าตามเงื่อนไข และคุม timezone)</li>
+                        <li>จัดการผลสอบและประวัติด้วยฐานข้อมูล (เช่น exam_results เก็บ snapshot ของข้อมูลที่จำเป็น)</li>
+                        <li>มี node-cron ดูแลข้อมูลอัตโนมัติ (ลบข้อมูลเก่าตามเงื่อนไข และคุม timezone)</li>
                     </ul>
 
                     <h5 class="mt-5 text-sm font-semibold text-slate-900 dark:text-slate-100">Tech Stack</h5>
