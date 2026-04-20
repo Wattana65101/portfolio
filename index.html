@@ -223,6 +223,7 @@
                 <h3 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">My Projects</h3>
                 <p class="text-slate-500 dark:text-slate-400 mt-2">เลื่อนขวาเพื่อดูโปรเจกต์ และกดที่การ์ดเพื่อดูข้อมูลเต็ม</p>
             </div>
+
             <div class="projects-horizontal-wrap mt-10 reveal">
                 <div class="projects-horizontal-track" aria-label="Project list">
                     <button type="button" class="project-vertical-card" data-project-detail="project-detail-catfeed">
@@ -233,6 +234,71 @@
                             <div class="project-vertical-tags">
                                 <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-1 rounded">IoT</span>
                                 <span class="tag-lift bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-1 rounded">Blynk</span>
+
+            <div class="projects-scroll-viewport mt-10 reveal">
+                <div class="projects-scroll-track">
+                    <div class="project-item">
+<div class="card-3d bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-4 md:flex gap-4 backdrop-blur-sm">
+    <img src="cachedImage.png" alt="รูปโปรเจกต์เครื่องให้อาหารแมว" class="w-full md:w-1/4 h-auto rounded-lg object-cover">
+    <div class="flex-1 text-slate-800 dark:text-slate-100">
+        <h3 class="text-xl font-bold mb-4">
+            โปรเจคเครื่องให้อาหารแมวอัตโนมัติควบคุมผ่านมือถือ (Mobile Application: Blynk)
+        </h3>
+        <ul class="list-disc pl-5 space-y-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            <li>
+                <strong>การควบคุมการจ่ายอาหาร:</strong>
+                <ul class="list-disc pl-5 mt-1 space-y-1">
+                    <li>ใช้ ESP8266 ควบคุมการทำงานของเซอร์โวมอเตอร์หรือมอเตอร์ DC</li>
+                    <li>สามารถตั้งเวลา หรือสั่งงานผ่าน Wi-Fi (Blynk Web หรือ Mobile Application)</li>
+                </ul>
+            </li>
+            <li>
+                <strong>การจ่ายอาหารจริง:</strong>
+                <ul class="list-disc pl-5 mt-1 space-y-1">
+                    <li>เมื่อถึงเวลาที่ตั้งไว้ หรือเมื่อผู้ใช้สั่งการผ่านแอป</li>
+                </ul>
+            </li>
+            <li>
+                <strong>อุปกรณ์ที่ใช้ในโปรเจกต์:</strong>
+                <ul class="list-disc pl-5 mt-1 space-y-1">
+                    <li>ESP8266 บอร์ดควบคุมหลัก ใช้เชื่อมต่อ Wi-Fi และควบคุมระบบ</li>
+                    <li>Servo Motor SG90 สำหรับเปิด-ปิดช่องให้อาหาร</li>
+                    <li>ถังเก็บอาหาร (พลาสติกใส)</li>
+                    <li>ถาดรองอาหาร</li>
+                    <li>แผ่นพลาสวูด สำหรับสร้างโครงเครื่อง</li>
+                    <li>ระบบควบคุมผ่านแอป Blynk บนมือถือ</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="mt-4 flex flex-wrap gap-2">
+            <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">IoT</span>
+            <span class="tag-lift bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Arduino IDE C/C++</span>
+            <span class="tag-lift bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Blynk</span>
+        </div>
+        <div class="mt-6 flex gap-4 flex-wrap">
+            <a href="codecatfeed.ino" target="_blank" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">View Code</a>
+            <a href="โครงงานระบบให้อาหารสัตว์อัตโนมัติ.pptx.pdf" target="_blank" class="px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition">Document</a>
+        </div>
+    </div>
+</div>
+                    </div>
+                    <div class="project-item">
+                <article class="card-3d project-card flex flex-col md:flex-row bg-white/70 dark:bg-gray-800/70 
+                    border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden backdrop-blur-sm">
+                    <img src="homepg.png" class="w-full md:w-1/4 h-auto rounded-lg object-cover" alt="รูปโปรเจกต์เครื่องให้อาหารแมว">
+                    <div class="p-6 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-slate-100">MOBILE APPLICATION TRACK SPEND (กำลังพัฒนา)</h4>
+                            <div class="text-slate-500 dark:text-slate-400 mt-2 text-sm space-y-2">
+                                <p><strong># จุดเด่นของแอป</strong></p>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li><strong>ใช้งานง่าย บันทึกได้ทันที</strong> เพียงใส่จำนวนเงิน เลือกหมวดหมู่ และบันทึก ก็สามารถเก็บข้อมูลรายรับ–รายจ่ายได้อย่างเป็นระบบ</li>
+                                    <li><strong>สรุปผลชัดเจนด้วยกราฟ</strong> ข้อมูลทั้งหมดถูกแสดงออกมาในรูปแบบกราฟและแผนภูมิ ทำให้ผู้ใช้มองเห็นพฤติกรรมการใช้เงินได้ทันที เช่น หมวดหมู่ไหนใช้จ่ายมากที่สุด หรือรายจ่ายในแต่ละเดือนเท่าไร</li>
+                                    <li><strong>ระบบงบประมาณ (Budget Control)</strong> ผู้ใช้สามารถกำหนดงบรายเดือน หรือกำหนดงบเฉพาะหมวด เช่น “ค่าอาหารไม่เกิน 3,000 บาท/เดือน” เมื่อใกล้ถึงขีดจำกัด แอปจะแจ้งเตือนให้รู้ตัวก่อนเงินเกินงบ </li>
+                                    <li><strong>ค้นหาและกรองข้อมูลได้สะดวก</strong> หากต้องการดูย้อนหลังว่าสิ้นเดือนที่แล้วใช้จ่ายไปกับอะไร สามารถค้นหาตามหมวดหมู่ วันที่ หรือคำอธิบายได้ทันที</li>
+                                    <li><strong>ปรับแต่งหน้าตาได้ตามใจ</strong> ผู้ใช้เลือกธีม สี และรูปแบบการแสดงผลได้เอง เพื่อให้การใช้งานสนุกและไม่จำเจ </li>
+                                </ul>
+>>>>>>> devMIne
                             </div>
                         </div>
                     </button>
@@ -249,6 +315,7 @@
                                 <span class="tag-lift px-2.5 py-1 rounded text-xs font-medium" style="background-color:#40E0D0; color:#000;">MySQL</span>
                             </div>
                         </div>
+<<<<<<< HEAD
                     </button>
                     <button type="button" class="project-vertical-card" data-project-detail="project-detail-ibexam">
                         <img src="ibexam.png" alt="IB Online Examination System" class="project-vertical-image">
@@ -258,6 +325,43 @@
                             <div class="project-vertical-tags">
                                 <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-1 rounded">Online Exam</span>
                                 <span class="tag-lift bg-violet-100 text-violet-800 text-xs font-medium px-2.5 py-1 rounded">AI (Gemini)</span>
+=======
+                    </div>
+                    <!-- ซ้ำสำหรับ loop เลื่อนไม่ขาด -->
+                    <div class="project-item">
+<div class="card-3d bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-4 md:flex gap-4 backdrop-blur-sm">
+    <img src="cachedImage.png" alt="รูปโปรเจกต์เครื่องให้อาหารแมว" class="w-full md:w-1/4 h-auto rounded-lg object-cover">
+    <div class="flex-1 text-slate-800 dark:text-slate-100">
+        <h3 class="text-xl font-bold mb-4">โปรเจคเครื่องให้อาหารแมวอัตโนมัติควบคุมผ่านมือถือ (Mobile Application: Blynk)</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-300">ESP8266 • Blynk • Servo Motor</p>
+        <div class="mt-4 flex flex-wrap gap-2">
+            <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">IoT</span>
+            <span class="tag-lift bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Blynk</span>
+        </div>
+    </div>
+</div>
+                    </div>
+                    <div class="project-item">
+                <article class="card-3d project-card flex flex-col md:flex-row bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden backdrop-blur-sm">
+                    <img src="homepg.png" class="w-full md:w-1/4 h-auto rounded-lg object-cover" alt="Track Spend">
+                    <div class="p-6 flex flex-col justify-between">
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-slate-100">MOBILE APPLICATION TRACK SPEND (กำลังพัฒนา)</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">React Native • MySQL • กราฟรายรับ-รายจ่าย</p>
+                        <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#8A2BE2; color:#fff;">React Native</span>
+                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#40E0D0; color:#000;">MySQL</span>
+                        </div>
+                    </div>
+                </article>
+                    </div>
+                    <div class="project-item">
+                        <div class="card-3d bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-8 border-dashed backdrop-blur-sm">
+                            <div class="flex flex-col items-center justify-center text-center py-12 min-h-[200px]">
+                                <div class="w-20 h-20 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4 animate-pulse-slow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-slate-400 dark:text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                                </div>
+                                <p class="text-sm text-slate-400 dark:text-slate-500">โปรเจกต์ถัดไป กำลังจะมา</p>
+>>>>>>> devMIne
                             </div>
                         </div>
                     </button>
