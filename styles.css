@@ -12,10 +12,6 @@ body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-.font-display {
-    font-family: 'Syne', 'Inter', sans-serif;
-}
-
 :focus-visible {
     outline: 2px solid rgba(56, 189, 248, 0.5);
     outline-offset: 3px;
@@ -219,10 +215,9 @@ body {
 .dark .section-label { color: #7dd3fc; }
 
 .section-title {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
     color: #0f172a;
 }
 
