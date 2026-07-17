@@ -4,16 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Wattana Manangam — Portfolio</title>
-    <meta name="description" content="Portfolio ของ Wattana Manangam — IoT & Mobile Developer, นักศึกษาวิทยาการคอมพิวเตอร์" />
+    <meta name="description" content="Portfolio ของ Wattana Manangam — IoT & Mobile Developer, บัณฑิตวิทยาการคอมพิวเตอร์" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
-    <script>
-        tailwind.config = { darkMode: 'class' }
-    </script>
+    <script>tailwind.config = { darkMode: 'class' }</script>
     <script>
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
@@ -26,7 +24,6 @@
 </head>
 <body class="min-h-screen bg-[#f8fafc] dark:bg-[#0b0f19] text-slate-700 dark:text-slate-300 antialiased transition-colors duration-300">
 
-    <!-- Background: Fizzi D orbs + grain + mouse spotlight -->
     <div id="fizzi-d" class="fizzi-d" aria-hidden="true">
         <div class="fizzi-d-base"></div>
         <div class="fizzi-d-orb fizzi-d-orb-1"></div>
@@ -79,8 +76,6 @@
     </header>
 
     <main class="relative z-10">
-<<<<<<< HEAD
-        <!-- Hero -->
         <section id="home" class="max-w-6xl mx-auto px-5 md:px-8 pt-20 pb-24 md:pt-28 md:pb-32">
             <div class="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-center">
                 <div>
@@ -96,7 +91,7 @@
                             <span id="typeLine"></span><span class="typing-cursor">|</span>
                         </p>
                         <p class="mt-4 text-slate-500 dark:text-slate-400 leading-relaxed">
-                            สร้างระบบ IoT และแอปมือถือที่แก้ปัญหาจริง — จากเครื่องให้อาหารแมวอัตโนมัติ ไปจนถึงแอปติดตามค่าใช้จ่าย
+                            สร้างระบบ IoT และแอปมือถือที่แก้ปัญหาจริง — จากเครื่องให้อาหารแมวอัตโนมัติ ไปจนถึงระบบสอบออนไลน์
                         </p>
                         <div class="mt-8 flex flex-wrap gap-3">
                             <a href="#projects" class="btn-primary inline-flex items-center gap-2">
@@ -109,9 +104,9 @@
                             </a>
                         </div>
                         <div class="mt-10 flex flex-wrap gap-6 text-sm text-slate-500 dark:text-slate-400">
-                            <div><span class="block text-xl font-semibold text-slate-900 dark:text-white">2+</span>โปรเจกต์</div>
+                            <div><span class="block text-xl font-semibold text-slate-900 dark:text-white">3+</span>โปรเจกต์</div>
                             <div><span class="block text-xl font-semibold text-slate-900 dark:text-white">IoT</span>ESP8266 / ESP32</div>
-                            <div><span class="block text-xl font-semibold text-slate-900 dark:text-white">CS</span>ปี 4 · ราชภัฏพระนคร</div>
+                            <div><span class="block text-xl font-semibold text-slate-900 dark:text-white">CS</span>บัณฑิต · ราชภัฏพระนคร</div>
                         </div>
                     </div>
                 </div>
@@ -128,16 +123,15 @@
             </div>
         </section>
 
-        <!-- About -->
         <section id="aboutme" class="section-wrap">
             <div class="max-w-6xl mx-auto px-5 md:px-8">
                 <div class="reveal max-w-2xl">
                     <p class="section-label">About</p>
                     <h2 class="section-title mt-3">นาย วัฒนา มานะงาม</h2>
                     <p class="mt-5 text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                        นักศึกษาชั้นปีที่ 4 สาขาวิทยาการคอมพิวเตอร์
+                        สำเร็จการศึกษาจากคณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์
                         <strong class="text-sky-600 dark:text-sky-400 font-medium">มหาวิทยาลัยราชภัฏพระนคร</strong>
-                        มีความสนใจด้าน IoT และ Mobile Application และพร้อมเรียนรู้เทคโนโลยีใหม่ๆ
+                        มีความสนใจด้าน IoT และ Mobile / Web Application และพร้อมเรียนรู้เทคโนโลยีใหม่ๆ
                     </p>
                 </div>
                 <div class="mt-10 grid sm:grid-cols-3 gap-4 reveal">
@@ -166,14 +160,13 @@
             </div>
         </section>
 
-        <!-- Skills -->
         <section id="skills" class="section-wrap">
             <div class="max-w-6xl mx-auto px-5 md:px-8">
                 <div class="reveal text-center max-w-xl mx-auto">
                     <p class="section-label">Skills</p>
                     <h2 class="section-title mt-3">เทคโนโลยีที่ใช้งาน</h2>
                 </div>
-                <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal">
+                <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 reveal">
                     <article class="skill-card reveal-item reveal-item-delay-1">
                         <div class="skill-card-icon text-sky-500"><i class="ph ph-cpu"></i></div>
                         <h3 class="font-semibold text-slate-900 dark:text-white">Embedded / IoT</h3>
@@ -187,32 +180,41 @@
                         <div class="skill-card-icon text-violet-500"><i class="ph ph-brackets-curly"></i></div>
                         <h3 class="font-semibold text-slate-900 dark:text-white">Languages</h3>
                         <ul class="mt-3 space-y-1.5 text-sm text-slate-500 dark:text-slate-400">
-                            <li>C / C++</li>
-                            <li>Python</li>
-                            <li>HTML / CSS</li>
+                            <li>C / C++ · Python</li>
+                            <li>HTML · JavaScript</li>
+                            <li>Dart · JSON</li>
                         </ul>
                     </article>
                     <article class="skill-card reveal-item reveal-item-delay-3">
+                        <div class="skill-card-icon text-indigo-500"><i class="ph ph-stack"></i></div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white">Framework</h3>
+                        <ul class="mt-3 space-y-1.5 text-sm text-slate-500 dark:text-slate-400">
+                            <li>React Native</li>
+                            <li>Next.js</li>
+                            <li>Flutter</li>
+                        </ul>
+                    </article>
+                    <article class="skill-card reveal-item reveal-item-delay-4">
                         <div class="skill-card-icon text-emerald-500"><i class="ph ph-database"></i></div>
                         <h3 class="font-semibold text-slate-900 dark:text-white">Database</h3>
                         <ul class="mt-3 space-y-1.5 text-sm text-slate-500 dark:text-slate-400">
                             <li>MySQL</li>
+                            <li>Sequelize ORM</li>
                         </ul>
                     </article>
-                    <article class="skill-card reveal-item reveal-item-delay-4">
+                    <article class="skill-card reveal-item reveal-item-delay-4 sm:col-span-2 lg:col-span-1">
                         <div class="skill-card-icon text-rose-500"><i class="ph ph-wrench"></i></div>
                         <h3 class="font-semibold text-slate-900 dark:text-white">Tools</h3>
                         <ul class="mt-3 space-y-1.5 text-sm text-slate-500 dark:text-slate-400">
                             <li>Arduino IDE · VS Code</li>
                             <li>Android Studio</li>
-                            <li>Figma / Canva</li>
+                            <li>Figma / Canva · Docker</li>
                         </ul>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Projects -->
         <section id="projects" class="section-wrap">
             <div class="max-w-6xl mx-auto px-5 md:px-8">
                 <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
@@ -220,278 +222,111 @@
                         <p class="section-label">Projects</p>
                         <h2 class="section-title mt-3">ผลงานที่เด่น</h2>
                     </div>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 sm:max-w-xs sm:text-right">เลื่อนเมาส์บนการ์ดเพื่อดูมิติ 3D</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 sm:max-w-xs sm:text-right">เลื่อนขวาเพื่อดูโปรเจกต์ · กดการ์ดเพื่อดูรายละเอียด</p>
                 </div>
 
-                <div class="mt-12 grid gap-6 reveal">
-                    <!-- Featured project -->
-                    <article class="project-card card-tilt reveal-item reveal-item-delay-1 lg:grid lg:grid-cols-2 lg:gap-0">
-                        <div class="project-card-image">
-                            <img src="cachedImage.png" alt="เครื่องให้อาหารแมวอัตโนมัติ" loading="lazy">
-                            <span class="project-badge">Featured · IoT</span>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white leading-snug">
-                                เครื่องให้อาหารแมวอัตโนมัติ
-                            </h3>
-                            <p class="text-sm text-sky-600 dark:text-sky-400 font-medium mt-1">ควบคุมผ่านมือถือ · Blynk App</p>
-                            <p class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
-                                ระบบจ่ายอาหารแมวอัตโนมัติด้วย ESP8266 ควบคุม Servo Motor ตั้งเวลาหรือสั่งงานผ่าน Wi-Fi ได้จากแอป Blynk บนมือถือ
-                            </p>
-                            <div class="mt-5 flex flex-wrap gap-2">
-                                <span class="tag">IoT</span>
-                                <span class="tag">ESP8266</span>
-                                <span class="tag">Arduino C/C++</span>
-                                <span class="tag">Blynk</span>
+                <div class="projects-horizontal-wrap mt-10 reveal">
+                    <div class="projects-horizontal-track" aria-label="Project list">
+                        <button type="button" class="project-vertical-card reveal-item reveal-item-delay-1" data-project-detail="project-detail-catfeed">
+                            <img src="cachedImage.png" alt="เครื่องให้อาหารแมวอัตโนมัติ" class="project-vertical-image" loading="lazy">
+                            <div class="project-vertical-body">
+                                <h3 class="project-vertical-title">เครื่องให้อาหารแมวอัตโนมัติ</h3>
+                                <p class="project-vertical-desc">IoT + Blynk App ควบคุมจ่ายอาหารผ่านมือถือ</p>
+                                <div class="project-vertical-tags">
+                                    <span class="tag">IoT</span>
+                                    <span class="tag">ESP8266</span>
+                                    <span class="tag">Blynk</span>
+                                </div>
                             </div>
-                            <div class="mt-6 flex flex-wrap gap-3">
-                                <a href="codecatfeed.ino" target="_blank" rel="noopener noreferrer" class="btn-primary text-sm py-2 px-4">View Code</a>
-                                <a href="โครงงานระบบให้อาหารสัตว์อัตโนมัติ.pptx.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm py-2 px-4">Document</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <article class="project-card card-tilt reveal-item reveal-item-delay-2">
-                            <div class="project-card-image project-card-image-sm">
-                                <img src="homepg.png" alt="Track Spend App" loading="lazy">
-                                <span class="project-badge project-badge-wip">In Progress</span>
-                            </div>
-                            <div class="project-card-body">
-                                <h3 class="text-base font-semibold text-slate-900 dark:text-white">Track Spend</h3>
-                                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                                    แอปบันทึกรายรับ-รายจ่าย พร้อมกราฟสรุป ระบบงบประมาณ และแจ้งเตือนเมื่อใกล้เกินงบ
-                                </p>
-                                <div class="mt-4 flex flex-wrap gap-2">
+                        </button>
+                        <button type="button" class="project-vertical-card reveal-item reveal-item-delay-2" data-project-detail="project-detail-trackspend">
+                            <img src="trackspend-1.png" alt="Track Spend App" class="project-vertical-image" loading="lazy">
+                            <div class="project-vertical-body">
+                                <h3 class="project-vertical-title">Track Spend (กำลังพัฒนา)</h3>
+                                <p class="project-vertical-desc">แอปบันทึกรายรับ-รายจ่าย พร้อมกราฟสรุปและระบบงบประมาณ</p>
+                                <div class="project-vertical-tags">
                                     <span class="tag">React Native</span>
                                     <span class="tag">MySQL</span>
-                                    <span class="tag">Figma</span>
                                 </div>
                             </div>
-                        </article>
+                        </button>
+                        <button type="button" class="project-vertical-card reveal-item reveal-item-delay-3" data-project-detail="project-detail-ibexam">
+                            <img src="ibexam.png" alt="JIB Online Examination System" class="project-vertical-image" loading="lazy">
+                            <div class="project-vertical-body">
+                                <h3 class="project-vertical-title">JIB Online Examination System</h3>
+                                <p class="project-vertical-desc">ระบบสอบออนไลน์ + Admin Dashboard + ตรวจข้ออัตนัยด้วย AI</p>
+                                <div class="project-vertical-tags">
+                                    <span class="tag">Next.js</span>
+                                    <span class="tag">Node.js</span>
+                                    <span class="tag">Gemini AI</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
 
-                        <article class="project-card project-card-placeholder card-tilt reveal-item reveal-item-delay-3">
-                            <div class="project-card-body flex flex-col items-center justify-center text-center min-h-[280px]">
-                                <div class="w-14 h-14 rounded-2xl bg-slate-100 dark:bg-white/5 flex items-center justify-center mb-4">
-                                    <i class="ph ph-plus text-2xl text-slate-400"></i>
-                                </div>
-                                <h3 class="font-semibold text-slate-500 dark:text-slate-400">โปรเจกต์ถัดไป</h3>
-                                <p class="text-sm text-slate-400 dark:text-slate-500 mt-1">กำลังจะมาเร็วๆ นี้</p>
-                            </div>
-                        </article>
-                    </div>
-=======
-        <section id="home" class="max-w-7xl mx-auto px-6 lg:px-8 py-24 grid md:grid-cols-2 gap-12 items-center">
-            <div class="relative z-10">
-                <div class="reveal">
-                    <p class="text-sm text-sky-500 dark:text-sky-400 font-medium mb-4">Hi, I'm</p>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900 dark:text-slate-50">Wattana <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-violet-500">Manangam</span></h1>
-                </div>
-                <div class="mt-6 max-w-xl reveal">
-                    <p class="text-slate-700 dark:text-slate-300 text-lg" id="typeLine">บัณฑิตวิทยาการคอมพิวเตอร์ • IoT & Mobile Developer</p>
-                    <p class="mt-4 text-slate-500 dark:text-slate-400">ชอบสร้างโปรเจ็กต์ที่แก้ปัญหาให้ผู้คนจริงจัง เช่น ระบบให้อาหารแมวอัตโนมัติ และแอปติดตามค่าใช้จ่าย</p>
-                    <div class="mt-8 flex gap-4">
-                        <a href="#projects" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-200/70 dark:bg-slate-800/70 hover:bg-slate-300/70 dark:hover:bg-slate-700/70 text-slate-800 dark:text-slate-200 font-medium transition-colors">View Projects
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                        </a>
-                          </a>
-                    </div>
-                    <div class="mt-8 flex gap-4 text-slate-400 dark:text-slate-500">
-                        <a aria-label="GitHub" href="https://github.com/Wattana65101" target="_blank" rel="noopener noreferrer" class="hover:text-slate-700 dark:hover:text-slate-300 transition-colors"><i class="ph ph-github-logo" style="font-size:22px"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="relative z-10 flex justify-center reveal">
-                <div class="w-full max-w-sm backdrop-blur-sm bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl p-6 shadow-2xl shadow-slate-300/20 dark:shadow-sky-500/10">
-                    <div id="skills" class="mt-5">
-                        <div class="flex items-center justify-between gap-3">
-                            <div class="text-sm text-slate-600 dark:text-slate-300 font-medium">My Skills</div>
+                <div class="hidden">
+                    <article id="project-detail-catfeed">
+                        <h4 class="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-100">เครื่องให้อาหารแมวอัตโนมัติควบคุมผ่านมือถือ</h4>
+                        <ul class="list-disc pl-5 mt-4 space-y-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                            <li><strong>วัสดุที่ใช้:</strong> ESP8266, Servo Motor, ถังเก็บอาหาร, แผ่นพลาสวูด</li>
+                            <li><strong>การทำงาน:</strong> สั่งการผ่าน Blynk บนมือถือ ตั้งเวลาให้อาหาร และสั่งจ่ายอาหารได้ทันที</li>
+                        </ul>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="tag">IoT</span>
+                            <span class="tag">Arduino C/C++</span>
+                            <span class="tag">Blynk</span>
                         </div>
-                        <div class="mt-2 flex flex-wrap gap-2">
-                            <span class="tag-lift text-xs px-2.5 py-1 rounded-full bg-sky-100 text-sky-700 dark:bg-sky-500/20 dark:text-sky-300">IoT</span>
-                            <span class="tag-lift text-xs px-2.5 py-1 rounded-full bg-violet-100 text-violet-700 dark:bg-violet-500/20 dark:text-violet-300">Mobile</span>
-                            <span class="tag-lift text-xs px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-300">Web</span>
+                        <div class="mt-6 flex gap-3 flex-wrap">
+                            <a href="codecatfeed.ino" target="_blank" rel="noopener noreferrer" class="btn-primary text-sm py-2 px-4">View Code</a>
+                            <a href="โครงงานระบบให้อาหารสัตว์อัตโนมัติ.pptx.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm py-2 px-4">Document</a>
                         </div>
-                        <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <div class="p-3 rounded-lg bg-slate-100/80 dark:bg-gray-700/50 text-left">
-                                <div class="text-xs text-sky-600 dark:text-sky-400 font-semibold">Embedded / IoT</div>
-                                <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">ESP8266 / Arduino </div>
-                            </div>
-                            <div class="p-3 rounded-lg bg-slate-100/80 dark:bg-gray-700/50 text-left">
-                                <div class="text-xs text-violet-600 dark:text-violet-400 font-semibold">Languages</div>
-                                <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">C/C++, Python, HTML ,JavaScript, json, dart </div>
-                            </div>
-                            <div class="p-3 rounded-lg bg-slate-100/80 dark:bg-gray-700/50 text-left">
-                                <div class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">Database</div>
-                                <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">MySQL</div>
-                            </div>
-                            <div class="p-3 rounded-lg bg-slate-100/80 dark:bg-gray-700/50 text-left">
-                                <div class="text-xs text-amber-600 dark:text-amber-400 font-semibold">Framework</div>
-                                <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">React Native, Next.js ,flutter</div>
-                            </div>
-                            <div class="p-3 rounded-lg bg-slate-100/80 dark:bg-gray-700/50 text-left sm:col-span-2">
-                                <div class="text-xs text-rose-600 dark:text-rose-400 font-semibold">Tools</div>
-                                <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">Arduino IDE, VS Code, Android Studio</div>
+                    </article>
+                    <article id="project-detail-trackspend">
+                        <h4 class="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-100">Track Spend (กำลังพัฒนา)</h4>
+                        <div class="project-modal-gallery" data-images="trackspend-1.png,trackspend-2.png,trackspend-3.png,trackspend-4.png,trackspend-5.png,trackspend-6.png,trackspend-7.png,trackspend-8.png">
+                            <div class="project-modal-gallery-main">
+                                <img src="trackspend-1.png" alt="Track Spend screens" class="project-modal-gallery-image">
+                                <button type="button" class="project-modal-gallery-nav project-modal-gallery-prev" data-gallery-dir="-1" aria-label="รูปก่อนหน้า">&#10094;</button>
+                                <button type="button" class="project-modal-gallery-nav project-modal-gallery-next" data-gallery-dir="1" aria-label="รูปถัดไป">&#10095;</button>
                             </div>
                         </div>
-                    </div>
+                        <ul class="list-disc pl-5 mt-4 space-y-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                            <li>บันทึกรายรับ-รายจ่ายได้ง่าย พร้อมแยกหมวดหมู่</li>
+                            <li>กราฟและสถิติช่วยวิเคราะห์พฤติกรรมการใช้เงิน</li>
+                            <li>ระบบงบประมาณและแจ้งเตือนเมื่อใกล้เกินงบ</li>
+                        </ul>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="tag">React Native</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Figma</span>
+                        </div>
+                    </article>
+                    <article id="project-detail-ibexam">
+                        <h4 class="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-100">JIB Online Examination System</h4>
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                            ระบบสอบออนไลน์สำหรับผู้สมัครงานและพนักงาน พร้อมฝั่ง Admin จัดการข้อสอบ/คำถาม/ตัวเลือก ดูผลและสถิติแบบกราฟ และฝั่งผู้ใช้เข้าสอบ ส่งคำตอบและดูคะแนน (รวมข้ออัตนัยที่ตรวจด้วย AI)
+                        </p>
+                        <h5 class="mt-5 text-sm font-semibold text-slate-900 dark:text-slate-100">Key Highlights</h5>
+                        <ul class="list-disc pl-5 mt-3 space-y-1 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                            <li>Admin Dashboard แสดงสถิติผลสอบ พร้อมกราฟรายวัน/รายเดือน</li>
+                            <li>จัดการ Exam, Question, Choices และ import ข้อสอบจากไฟล์</li>
+                            <li>ตรวจข้ออัตนัยด้วย Google Gemini แบบ background</li>
+                            <li>รองรับ EQ exam และ merged exam snapshot</li>
+                        </ul>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Express</span>
+                            <span class="tag">Next.js</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Gemini AI</span>
+                            <span class="tag">Docker</span>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
-        <section id="aboutme" class="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
-        <div class="reveal-left w-64 h-64 lg:w-80 lg:h-80 mx-auto">
-            <img src="รูปหล่อ.jpg" alt="Wattana Manangam Profile Picture" class="rounded-full w-full h-full object-cover shadow-lg border-4 border-slate-200 dark:border-slate-700 transform hover:scale-105 transition-transform duration-300">
-        </div>
-        <div class="reveal-right text-center md:text-left">
-            <h2 class="text-slate-500 dark:text-slate-400 text-lg font-medium tracking-wider">ABOUT ME</h2>
-            <h3 class="text-slate-900 dark:text-slate-50 text-4xl lg:text-5xl font-extrabold tracking-tight mt-2">
-            นาย วัฒนา มานะงาม
-            </h3>
-            <p class="text-slate-600 dark:text-slate-300 mt-6 text-lg max-w-xl mx-auto md:mx-0">
-                สำเร็จการศึกษาจากคณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์ <br class="hidden md:block">
-                ที่ <strong class="text-cyan-600 dark:text-cyan-400">มหาวิทยาลัยราชภัฏพระนคร</strong>
-            </p>
-            <p class="text-slate-500 dark:text-slate-400 mt-4 max-w-xl mx-auto md:mx-0">
-                ผมมีความหลงใหลในการพัฒนาเทคโนโลยี โดยเฉพาะด้าน <strong class="font-medium text-slate-800 dark:text-slate-200">IoT</strong> และ <strong class="font-medium text-slate-800 dark:text-slate-200">Mobile Web Application</strong> และพร้อมเสมอที่จะเรียนรู้และท้าทายตัวเองกับเทคโนโลยีใหม่ๆ หากมีโอกาส
-            </p>
-        </div>
-    </div>
-</section>
-        <section id="projects" class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-            <div class="reveal text-center">
-                <h3 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">My Projects</h3>
-                <p class="text-slate-500 dark:text-slate-400 mt-2">เลื่อนขวาเพื่อดูโปรเจกต์ และกดที่การ์ดเพื่อดูข้อมูลเต็ม</p>
-            </div>
 
-            <div class="projects-horizontal-wrap mt-10 reveal">
-                <div class="projects-horizontal-track" aria-label="Project list">
-                    <button type="button" class="project-vertical-card" data-project-detail="project-detail-catfeed">
-                        <img src="cachedImage.png" alt="โปรเจกต์เครื่องให้อาหารแมว" class="project-vertical-image">
-                        <div class="project-vertical-body">
-                            <h4 class="project-vertical-title">เครื่องให้อาหารแมวอัตโนมัติ</h4>
-                            <p class="project-vertical-desc">IoT + Mobile App (Blynk) ควบคุมผ่านมือถือ</p>
-                            <div class="project-vertical-tags">
-                                <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-1 rounded">IoT</span>
-                                <span class="tag-lift bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-1 rounded">Blynk</span>
-                            </div>
-                        </div>
-                    </button>
-                    <button type="button" class="project-vertical-card" data-project-detail="project-detail-trackspend">
-                        <img src="trackspend-1.png" alt="โปรเจกต์ Track Spend" class="project-vertical-image">
-                        <div class="project-vertical-body">
-                            <h4 class="project-vertical-title">Track Spend (กำลังพัฒนา)</h4>
-                            <p class="project-vertical-desc">แอปบันทึกรายรับรายจ่าย พร้อมกราฟสรุป และปรับธีมสีได้</p>
-                            <div class="project-vertical-tags">
-                                <span class="tag-lift px-2.5 py-1 rounded text-xs font-medium" style="background-color:#8A2BE2; color:#fff;">React Native</span>
-                                <span class="tag-lift px-2.5 py-1 rounded text-xs font-medium" style="background-color:#40E0D0; color:#000;">MySQL</span>
-                            </div>
-                        </div>
-                    </button>
-                    <button type="button" class="project-vertical-card" data-project-detail="project-detail-ibexam">
-                        <img src="ibexam.png" alt="IB Online Examination System" class="project-vertical-image">
-                        <div class="project-vertical-body">
-                            <h4 class="project-vertical-title">JIB Online Examination System</h4>
-                            <p class="project-vertical-desc">Online Exam + Admin Dashboard (รวมตรวจข้ออัตนัยด้วย AI)</p>
-                            <div class="project-vertical-tags">
-                                <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-1 rounded">Online Exam</span>
-                                <span class="tag-lift bg-violet-100 text-violet-800 text-xs font-medium px-2.5 py-1 rounded">AI (Gemini)</span>
-                            </div>
-                        </div>
-                    </button>
->>>>>>> main
-                </div>
-            </div>
-
-            <div class="hidden">
-                <article id="project-detail-catfeed">
-                    <h4 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-slate-100">โปรเจกต์เครื่องให้อาหารแมวอัตโนมัติควบคุมผ่านมือถือ</h4>
-                    <ul class="list-disc pl-5 mt-4 space-y-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                        <li> วัสดุที่ใช้  </li>
-                        <p>1. บอร์ดESP8266</p>
-                        <p>2. Servo Motor</p>
-                        <p>3. ถังเก็บอาหาร</p>
-                        <p>4. แผ่นพลาสวูด</p>
-                        <li> ขั้นตอนการทำงาน </li>
-                        <p>สั่งการทำงานผ่าน Blynk บนมือถือ ตั้งเวลาให้อาหาร และสั่งจ่ายอาหารจากมือถือผ่าน Blynk เเละ ใช้บอร์ด ESP8266 ควบคุม Servo Motor ให้เปิดถาดอาหารให้ทำงานตามเวลาที่ตั้งไว้ </p>
-                    </ul>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-1 rounded">IoT</span>
-                        <span class="tag-lift bg-red-100 text-red-800 text-xs font-medium px-2.5 py-1 rounded">Arduino IDE C/C++</span>
-                        <span class="tag-lift bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-1 rounded">Blynk</span>
-                    </div>
-                    <div class="mt-6 flex gap-3 flex-wrap">
-                        <a href="codecatfeed.ino" target="_blank" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">View Code</a>
-                        <a href="โครงงานระบบให้อาหารสัตว์อัตโนมัติ.pptx.pdf" target="_blank" class="px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition">Document</a>
-                    </div>
-                </article>
-                <article id="project-detail-trackspend">
-                    <h4 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-slate-100">MOBILE APPLICATION TRACK SPEND (กำลังพัฒนา)</h4>
-                    <div class="project-modal-gallery" data-images="trackspend-1.png,trackspend-2.png,trackspend-3.png,trackspend-4.png,trackspend-5.png,trackspend-6.png,trackspend-7.png,trackspend-8.png">
-                        <div class="project-modal-gallery-main">
-                            <img src="trackspend-1.png" alt="TrackSpend Screens" class="project-modal-gallery-image">
-                            <button type="button" class="project-modal-gallery-nav project-modal-gallery-prev" data-gallery-dir="-1" aria-label="รูปก่อนหน้า">&#10094;</button>
-                            <button type="button" class="project-modal-gallery-nav project-modal-gallery-next" data-gallery-dir="1" aria-label="รูปรถัดไป">&#10095;</button>
-                        </div>
-                    </div>
-                    <ul class="list-disc pl-5 mt-4 space-y-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                        <li>บันทึกรายรับรายจ่ายได้ง่าย พร้อมแยกหมวดหมู่ชัดเจน</li>
-                        <li>มีกราฟและสถิติช่วยวิเคราะห์พฤติกรรมการใช้เงิน</li>
-                        <li>รองรับระบบงบประมาณและแจ้งเตือนเมื่อใกล้เกินงบ</li>
-                    </ul>
-                    <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#8A2BE2; color:#fff;">React Native</span>
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#40E0D0; color:#000;">MySQL</span>
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#FF6F61; color:#fff;">VS Code</span>
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#8A2BE2; color:#fff;">Android Studio</span>
-                    </div>
-                </article>
-                <article id="project-detail-ibexam">
-                    <h4 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-slate-100">JIB Online Examination System</h4>
-
-                    <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
-                        ระบบสอบออนไลน์สำหรับผู้สมัครงานและพนักงาน พร้อมฝั่ง `Admin` สำหรับจัดการข้อสอบ/คำถาม/ตัวเลือก ดูผลและสถิติแบบกราฟ และฝั่งผู้ใช้สำหรับเข้าสอบ ส่งคำตอบและดูคะแนน (รวมข้อสอบอัตนัยที่ตรวจด้วย AI)
-                    </p>
-
-                    <h5 class="mt-5 text-sm font-semibold text-slate-900 dark:text-slate-100">Key Highlights</h5>
-                    <ul class="list-disc pl-5 mt-3 space-y-1 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                        <li>พัฒนา Admin Dashboard แสดงสถิติผลสอบ พร้อมกราฟรายวัน/รายเดือน</li>
-                        <li>สร้างจัดการ Exam, Question, Chioces และ import ข้อสอบ/คำถามจากข้อมูลในระบบ</li>
-                        <li>รองรับข้อสอบอัตนัย เมื่อผู้ใช้ส่งคำตอบ ระบบให้ AI (Google Gemini) ช่วยตรวจแบบ background</li>
-                        <li>รองรับ EQ exam และโครงสร้างแบบ merged exam (เก็บ snapshot ผ่าน <code class="px-1 rounded bg-slate-100 dark:bg-slate-800">merged_from</code> พร้อมคัดกรอง/คำนวณตามกลุ่ม)</li>
-                        <li>ทำสื่อ/รูปประกอบคำถามด้วยขั้นตอนประมวลผล (ย่อ/จัดรูป) ก่อนใช้งานในระบบ</li>
-                        <li>จัดการผลสอบและประวัติด้วยฐานข้อมูล (เช่น exam_results เก็บ snapshot ของข้อมูลที่จำเป็น)</li>
-                        <li>มี node-cron ดูแลข้อมูลอัตโนมัติ (ลบข้อมูลเก่าตามเงื่อนไข และคุม timezone)</li>
-                    </ul>
-
-                    <h5 class="mt-5 text-sm font-semibold text-slate-900 dark:text-slate-100">Tech Stack</h5>
-                    <div class="mt-3 flex flex-wrap gap-2 text-xs">
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#e0f2fe; color:#075985;">Node.js</span>
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#f1e8ff; color:#6d28d9;">Express</span>
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#dcfce7; color:#166534;">Sequelize (MySQL)</span>
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#fff7ed; color:#9a3412;">JWT</span>
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#f3e8ff; color:#6b21a8;">Google Gemini</span>
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#e0f2fe; color:#0369a1;">sharp</span>
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#ecfccb; color:#4d7c0f;">xlsx</span>
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#ffe4e6; color:#9f1239;">Next.js (App Router)</span>
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#dbeafe; color:#1e3a8a;">React</span>
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#ede9fe; color:#5b21b6;">Ant Design</span>
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#ccfbf1; color:#0f766e;">Recharts</span>
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#fef9c3; color:#854d0e;">dayjs</span>
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#eff6ff; color:#1d4ed8;">axios</span>
-                        <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#f5f5f4; color:#27272a;">Docker Compose</span>
-                    </div>
-
-                    <h5 class="mt-5 text-sm font-semibold text-slate-900 dark:text-slate-100">Resume/Portfolio sentence</h5>
-                    <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
-                        พัฒนาโปรเจค Online Examination System ที่มี Admin Dashboard สำหรับจัดการข้อสอบและติดตามสถิติ พร้อมระบบตรวจข้ออัตนัยด้วย AI (Google Gemini) และรองรับการนำเข้า/จัดการคำถาม รวมถึงการคำนวณคะแนนและบันทึกผลการสอบลง MySQL
-                    </p>
-                </article>
-            </div>
-        </section>
-<<<<<<< HEAD
-
-        <!-- Timeline -->
         <section id="timeline" class="section-wrap">
             <div class="max-w-2xl mx-auto px-5 md:px-8">
                 <div class="reveal text-center">
@@ -510,35 +345,15 @@
                     <li class="timeline-item reveal-item reveal-item-delay-2">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <time class="text-xs font-medium text-sky-600 dark:text-sky-400">2022 – Present</time>
+                            <time class="text-xs font-medium text-sky-600 dark:text-sky-400">2022 – 2026</time>
                             <h3 class="font-semibold text-slate-900 dark:text-white mt-1">Phranakhon Rajabhat University</h3>
-                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Computer Science — โปรเจกต์ IoT แรกเสร็จสมบูรณ์</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Computer Science — สำเร็จการศึกษา</p>
                         </div>
                     </li>
                 </ol>
             </div>
-=======
-        <section id="timeline" class="max-w-3xl mx-auto px-6 lg:px-8 py-16">
-            <div class="reveal text-center">
-                <h3 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">Timeline</h3>
-                <p class="text-slate-500 dark:text-slate-400 mt-2">เส้นทางการศึกษาและประสบการณ์ที่ผ่านมา</p>
-            </div>
-            <ol class="mt-10 border-l-2 border-sky-200 dark:border-sky-500/30 ml-4 space-y-8 reveal">
-                <li class="reveal-item reveal-item-delay-1 pl-8 relative">
-                    <span class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-gradient-to-br from-sky-400 to-violet-500 border-4 border-slate-50 dark:border-gray-900"></span>
-                    <div class="text-sm text-slate-600 dark:text-slate-300 font-semibold">2016 - 2021 Navamindarajinuthit Benjamarachalai School</div>
-                    <div class="text-slate-500 dark:text-slate-400 text-sm mt-1">Highschool</div>
-                </li>
-                <li class="reveal-item reveal-item-delay-2 pl-8 relative">
-                    <span class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-gradient-to-br from-sky-400 to-violet-500 border-4 border-slate-50 dark:border-gray-900"></span>
-                    <div class="text-sm text-slate-600 dark:text-slate-300 font-semibold">2022 - 2026 Phranakhon Rajabhat University</div>
-                    <div class="text-slate-500 dark:text-slate-400 text-sm mt-1">Graduated in Computer Science.</div>
-                </li>
-            </ol>
->>>>>>> main
         </section>
 
-        <!-- Contact -->
         <section id="contact" class="section-wrap pb-24">
             <div class="max-w-3xl mx-auto px-5 md:px-8">
                 <div class="reveal text-center">
@@ -579,6 +394,7 @@
             </div>
         </section>
     </main>
+
     <div id="projectModal" class="project-modal" aria-hidden="true">
         <div class="project-modal-overlay" data-close-project-modal></div>
         <div class="project-modal-content">
@@ -599,7 +415,6 @@
     </footer>
 
     <script>
-        // Theme toggle
         var themeBtn = document.getElementById('themeToggle');
         if (themeBtn) {
             themeBtn.addEventListener('click', function () {
@@ -612,7 +427,6 @@
             });
         }
 
-        // Back to top
         var backToTop = document.getElementById('backToTop');
         if (backToTop) {
             function toggleBackToTop() {
@@ -622,7 +436,6 @@
             window.addEventListener('load', toggleBackToTop);
         }
 
-        // Mobile menu
         var mobileBtn = document.getElementById('mobileBtn');
         var mobileNav = document.getElementById('mobileNav');
         if (mobileBtn && mobileNav) {
@@ -632,7 +445,6 @@
             });
         }
 
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
             anchor.addEventListener('click', function (e) {
                 var href = this.getAttribute('href');
@@ -643,20 +455,15 @@
             });
         });
 
-        // Reveal on scroll
         function reveal() {
-            var reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-            var windowHeight = window.innerHeight;
-            reveals.forEach(function (el) {
-                var top = el.getBoundingClientRect().top;
-                el.classList.toggle('show', top < windowHeight - 120);
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function (el) {
+                el.classList.toggle('show', el.getBoundingClientRect().top < window.innerHeight - 120);
             });
         }
         window.addEventListener('scroll', reveal);
         window.addEventListener('load', reveal);
         reveal();
 
-        // Progress bar
         var progressBar = document.getElementById('progress');
         if (progressBar) {
             function updateProgress() {
@@ -667,7 +474,6 @@
             window.addEventListener('load', updateProgress);
         }
 
-        // Mouse spotlight
         var mouseSpotlight = document.getElementById('mouseSpotlight');
         if (mouseSpotlight) {
             document.addEventListener('mousemove', function (e) {
@@ -678,7 +484,6 @@
             document.addEventListener('mouseleave', function () { mouseSpotlight.classList.remove('is-active'); });
         }
 
-        // Header scrolled state
         var mainHeader = document.getElementById('mainHeader');
         if (mainHeader) {
             function toggleHeaderScrolled() {
@@ -688,8 +493,6 @@
             window.addEventListener('load', toggleHeaderScrolled);
         }
 
-<<<<<<< HEAD
-        // Active nav link on scroll
         var sections = document.querySelectorAll('section[id]');
         var navLinks = document.querySelectorAll('.nav-link');
         function updateActiveNav() {
@@ -708,21 +511,18 @@
         window.addEventListener('scroll', updateActiveNav);
         window.addEventListener('load', updateActiveNav);
 
-        // Typing animation
         (function () {
             var el = document.getElementById('typeLine');
             if (!el) return;
             var phrases = [
-                'IoT & Mobile Developer',
-                'นักศึกษาวิทยาการคอมพิวเตอร์',
-                'ESP32 · React Native · Python'
+                'บัณฑิตวิทยาการคอมพิวเตอร์ • IoT & Mobile Developer',
+                'React Native · Next.js · Node.js',
+                'ESP8266 · Python · MySQL'
             ];
             var phraseIndex = 0, charIndex = 0, deleting = false;
             function type() {
                 var current = phrases[phraseIndex];
-                el.textContent = deleting
-                    ? current.substring(0, charIndex--)
-                    : current.substring(0, ++charIndex);
+                el.textContent = deleting ? current.substring(0, charIndex--) : current.substring(0, ++charIndex);
                 if (!deleting && charIndex === current.length) {
                     deleting = true;
                     setTimeout(type, 2000);
@@ -737,49 +537,30 @@
             type();
         })();
 
-        // 3D card tilt
-        document.querySelectorAll('.card-tilt').forEach(function (card) {
-            card.addEventListener('mousemove', function (e) {
-                var rect = card.getBoundingClientRect();
-                var x = (e.clientX - rect.left) / rect.width - 0.5;
-                var y = (e.clientY - rect.top) / rect.height - 0.5;
-                card.style.transform = 'perspective(800px) rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 8) + 'deg) translateY(-2px)';
-            });
-            card.addEventListener('mouseleave', function () {
-                card.style.transform = '';
-            });
-        });
-=======
-        // Project cards: open detail modal
         var projectModal = document.getElementById('projectModal');
         var projectModalBody = document.getElementById('projectModalBody');
         var projectCards = document.querySelectorAll('.project-vertical-card');
         var projectModalClosers = document.querySelectorAll('[data-close-project-modal]');
 
         function initProjectModalGalleries(root) {
-            var galleries = root.querySelectorAll('.project-modal-gallery');
-            galleries.forEach(function(gallery) {
+            root.querySelectorAll('.project-modal-gallery').forEach(function (gallery) {
                 var data = gallery.getAttribute('data-images');
                 if (!data) return;
-                var images = data.split(',').map(function(s) { return s.trim(); }).filter(Boolean);
+                var images = data.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
                 if (!images.length) return;
                 var idx = 0;
                 var imgEl = gallery.querySelector('.project-modal-gallery-image');
                 if (!imgEl) return;
-
                 function show(i) {
                     idx = (i + images.length) % images.length;
                     imgEl.src = images[idx];
                 }
-
-                gallery.querySelectorAll('.project-modal-gallery-nav').forEach(function(btn) {
-                    btn.addEventListener('click', function(ev) {
+                gallery.querySelectorAll('.project-modal-gallery-nav').forEach(function (btn) {
+                    btn.addEventListener('click', function (ev) {
                         ev.stopPropagation();
-                        var dir = parseInt(btn.getAttribute('data-gallery-dir') || '0', 10) || 0;
-                        show(idx + dir);
+                        show(idx + (parseInt(btn.getAttribute('data-gallery-dir') || '0', 10) || 0));
                     });
                 });
-
                 show(0);
             });
         }
@@ -803,28 +584,25 @@
             document.body.style.overflow = '';
         }
 
-        projectCards.forEach(function(card) {
-            card.addEventListener('click', function() {
-                var detailId = card.getAttribute('data-project-detail');
-                openProjectModal(detailId);
+        projectCards.forEach(function (card) {
+            card.addEventListener('click', function () {
+                openProjectModal(card.getAttribute('data-project-detail'));
             });
         });
 
-        projectModalClosers.forEach(function(btn) {
+        projectModalClosers.forEach(function (btn) {
             btn.addEventListener('click', closeProjectModal);
         });
 
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') closeProjectModal();
         });
 
-        // Horizontal scroll within the projects area (wheel -> scrollLeft)
         var projectsWrap = document.querySelector('.projects-horizontal-wrap');
         if (projectsWrap) {
-            projectsWrap.addEventListener('wheel', function(e) {
+            projectsWrap.addEventListener('wheel', function (e) {
                 var maxScroll = projectsWrap.scrollWidth - projectsWrap.clientWidth;
-                if (maxScroll <= 0) return; // no horizontal scroll needed
-                // Only convert vertical wheel to horizontal movement
+                if (maxScroll <= 0) return;
                 if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
                 var dir = e.deltaY > 0 ? 1 : -1;
                 if (dir > 0 && projectsWrap.scrollLeft >= maxScroll - 2) return;
@@ -833,7 +611,6 @@
                 projectsWrap.scrollLeft += e.deltaY;
             }, { passive: false });
         }
->>>>>>> main
     </script>
 </body>
 </html>

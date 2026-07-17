@@ -685,10 +685,7 @@ header.scrolled .header-bar {
     opacity: 1;
 }
 
-<<<<<<< HEAD
-/* --- Back to top --- */
-=======
-/* --- Projects: แนวตั้ง เลื่อนไปขวา + คลิกดูรายละเอียด --- */
+/* --- Projects: horizontal scroll + modal --- */
 .projects-horizontal-wrap {
     overflow-x: auto;
     overflow-y: hidden;
@@ -706,11 +703,6 @@ header.scrolled .header-bar {
     padding: 0.25rem 1rem;
     justify-content: flex-start;
     flex-wrap: nowrap;
-}
-
-@keyframes projectsScrollX {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
 }
 
 .project-vertical-card {
@@ -743,14 +735,13 @@ header.scrolled .header-bar {
 }
 
 .project-vertical-card:hover {
-    transform: translateY(-12px) scale(1.05);
+    transform: translateY(-8px) scale(1.02);
     box-shadow: 0 20px 42px -18px rgba(14, 116, 144, 0.5);
     border-color: rgba(56, 189, 248, 0.7);
 }
 
 .project-vertical-card:hover .project-vertical-image {
-    transform: scale(1.06);
-    filter: saturate(1.25) contrast(1.1) brightness(1.08);
+    transform: scale(1.04);
 }
 
 .dark .project-vertical-card:hover {
@@ -762,9 +753,7 @@ header.scrolled .header-bar {
     height: 400px;
     object-fit: cover;
     border-bottom: 1px solid rgba(148, 163, 184, 0.3);
-    filter: saturate(1.14) contrast(1.05) brightness(1.03);
-    transition: transform 0.35s ease, filter 0.35s ease;
-    box-shadow: inset 0 -38px 52px -42px rgba(15, 23, 42, 0.75);
+    transition: transform 0.35s ease;
 }
 
 .project-modal-gallery-main,
@@ -806,13 +795,8 @@ header.scrolled .header-bar {
     transition: opacity 0.25s ease, background 0.2s ease;
 }
 
-.project-modal-gallery-prev {
-    left: 0.5rem;
-}
-
-.project-modal-gallery-next {
-    right: 0.5rem;
-}
+.project-modal-gallery-prev { left: 0.5rem; }
+.project-modal-gallery-next { right: 0.5rem; }
 
 .project-modal-gallery-main:hover .project-modal-gallery-nav {
     opacity: 1;
@@ -820,17 +804,6 @@ header.scrolled .header-bar {
 
 .project-modal-gallery-nav:hover {
     background: rgba(15, 23, 42, 0.6);
-}
-
-.project-vertical-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, rgba(226, 232, 240, 0.8), rgba(186, 230, 253, 0.8));
-}
-
-.dark .project-vertical-placeholder {
-    background: linear-gradient(135deg, rgba(51, 65, 85, 0.8), rgba(30, 41, 59, 0.9));
 }
 
 .project-vertical-body {
@@ -843,7 +816,7 @@ header.scrolled .header-bar {
 .project-vertical-title {
     font-size: 1rem;
     line-height: 1.45;
-    font-weight: 700;
+    font-weight: 600;
     color: #0f172a;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -852,9 +825,7 @@ header.scrolled .header-bar {
     overflow: hidden;
 }
 
-.dark .project-vertical-title {
-    color: #f8fafc;
-}
+.dark .project-vertical-title { color: #f8fafc; }
 
 .project-vertical-desc {
     font-size: 0.82rem;
@@ -867,9 +838,7 @@ header.scrolled .header-bar {
     overflow: hidden;
 }
 
-.dark .project-vertical-desc {
-    color: #cbd5e1;
-}
+.dark .project-vertical-desc { color: #cbd5e1; }
 
 .project-vertical-tags {
     margin-top: 0.35rem;
@@ -878,26 +847,6 @@ header.scrolled .header-bar {
     flex-wrap: wrap;
 }
 
-@keyframes pulse-slow {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.05); }
-}
-
-.animate-pulse-slow {
-    animation: pulse-slow 2.5s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .project-vertical-card {
-        transition: none;
-    }
-    .projects-horizontal-track {
-        animation: none;
-    }
-}
-
-/* --- 3D Modern: Project section & cards --- */
-#projects .flex.flex-col,
 #projects .projects-horizontal-wrap {
     perspective: 1200px;
 }
@@ -909,9 +858,7 @@ header.scrolled .header-bar {
     display: none;
 }
 
-.project-modal.is-open {
-    display: block;
-}
+.project-modal.is-open { display: block; }
 
 .project-modal-overlay {
     position: absolute;
@@ -961,91 +908,15 @@ header.scrolled .header-bar {
     color: #e2e8f0;
 }
 
-.card-3d {
-    transform-style: preserve-3d;
-    transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1),
-                box-shadow 0.5s cubic-bezier(0.2, 0.9, 0.3, 1);
-    box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.06),
-        0 10px 20px -5px rgba(0, 0, 0, 0.08),
-        0 20px 40px -10px rgba(59, 130, 246, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+.tag-lift {
+    display: inline-block;
 }
 
-.dark .card-3d {
-    box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.2),
-        0 10px 20px -5px rgba(0, 0, 0, 0.25),
-        0 20px 40px -10px rgba(56, 189, 248, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+@media (prefers-reduced-motion: reduce) {
+    .project-vertical-card { transition: none; }
 }
 
-.card-3d:hover {
-    transform: translateY(-4px);
-    box-shadow:
-        0 12px 24px -8px rgba(0, 0, 0, 0.12),
-        0 20px 40px -12px rgba(59, 130, 246, 0.15);
-}
-
-.dark .card-3d:hover {
-    box-shadow:
-        0 12px 24px -8px rgba(0, 0, 0, 0.3),
-        0 20px 40px -12px rgba(56, 189, 248, 0.2);
-}
-
-.project-card {
-    overflow: hidden;
-}
-
-.project-card img,
-.card-3d img {
-    transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1);
-    border-radius: 0.75rem;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-}
-
-.card-3d:hover img {
-    transform: scale(1.03);
-}
-
-/* 3D-style buttons inside project cards */
-.card-3d a[href*=".ino"],
-.card-3d a[href*=".pdf"],
-.card-3d a[target="_blank"].px-4 {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
-}
-
-.card-3d a[href*=".ino"]:hover,
-.card-3d a[href*=".pdf"]:hover,
-.card-3d a[target="_blank"].px-4:hover {
-    transform: translateY(2px);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
-}
-
-.card-3d a[href*=".ino"]:active,
-.card-3d a[href*=".pdf"]:active {
-    transform: translateY(4px);
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
-}
-
-/* --- Mobile: Project card images & layout --- */
-@media (max-width: 767px) {
-    .card-3d:hover {
-        transform: translateY(-4px);
-    }
-
-    .project-card img,
-    .card-3d img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        margin-bottom: 1rem;
-    }
-}
-
-/* --- ลูกเล่น: ปุ่มกลับขึ้นบน --- */
->>>>>>> main
+/* --- Back to top --- */
 .back-to-top {
     transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s, color 0.2s;
