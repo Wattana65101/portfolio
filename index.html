@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="th" class=""> <head>
+<html lang="th">
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>WATTANA MANANGAM — Portfolio</title>
-    
+    <title>Wattana Manangam — Portfolio</title>
+    <meta name="description" content="Portfolio ของ Wattana Manangam — IoT & Mobile Developer, นักศึกษาวิทยาการคอมพิวเตอร์" />
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
     <script>
-        tailwind.config = {
-            darkMode: 'class', // Enable class-based dark mode
-        }
+        tailwind.config = { darkMode: 'class' }
     </script>
     <script>
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -25,441 +24,382 @@
         }
     </script>
 </head>
-<body class="min-h-screen bg-sky-50 dark:bg-gray-900 text-slate-800 dark:text-slate-300 antialiased transition-colors duration-300">
+<body class="min-h-screen bg-[#f8fafc] dark:bg-[#0b0f19] text-slate-700 dark:text-slate-300 antialiased transition-colors duration-300">
 
-    <!-- Fizzi D Background (แนวเดียวกับ fizziD.tsx) -->
+    <!-- Background: Fizzi D orbs + grain + mouse spotlight -->
     <div id="fizzi-d" class="fizzi-d" aria-hidden="true">
         <div class="fizzi-d-base"></div>
         <div class="fizzi-d-orb fizzi-d-orb-1"></div>
         <div class="fizzi-d-orb fizzi-d-orb-2"></div>
         <div class="fizzi-d-orb fizzi-d-orb-3"></div>
-        <div class="fizzi-d-orb fizzi-d-orb-4"></div>
         <div class="fizzi-d-shine"></div>
     </div>
-
-    <!-- Sliding diagonals background (โทนอ่อน) -->
-    <div class="sliding-diagonals" aria-hidden="true">
-        <div class="sliding-diagonals-layer sliding-diagonals-layer-1"></div>
-        <div class="sliding-diagonals-layer sliding-diagonals-layer-2"></div>
-    </div>
-
-    <!-- กลบโทนม่วงมุมซ้ายบน (โหมดสว่าง) -->
-    <div class="top-left-sky-overlay light-only" aria-hidden="true"></div>
-
-    <div class="blob-container">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-        <!-- Fizzi-style: 3D orbs glow -->
-        <div class="orb-glow orb-glow-1"></div>
-        <div class="orb-glow orb-glow-2"></div>
-        <div class="orb-glow orb-glow-3"></div>
-        <!-- Fizzi-style: wavy circles -->
-        <div class="wavy-circles">
-            <div class="wavy-circle wavy-circle-1"></div>
-            <div class="wavy-circle wavy-circle-2"></div>
-            <div class="wavy-circle wavy-circle-3"></div>
-        </div>
-        <!-- Fizzi-style: floating bubbles -->
-        <div class="bubbles-wrap">
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-        </div>
-    </div>
+    <div class="grain-overlay" aria-hidden="true"></div>
+    <div id="mouseSpotlight" class="mouse-spotlight" aria-hidden="true"></div>
     <div id="progress"></div>
-    <!-- แสงตามเมาส์ (โหมดสว่าง) -->
-    <div id="mouseSpotlight" class="mouse-spotlight light-only" aria-hidden="true"></div>
+
     <header id="mainHeader" class="sticky top-0 z-50">
-        <div class="backdrop-blur-lg bg-white/80 dark:bg-gray-900/80 border-b border-slate-200/80 dark:border-slate-200/10">
-            <div class="max-w-7xl mx-auto px-5 md:px-8 lg:px-12 flex items-center justify-between h-16">
-                <a href="#home" class="flex items-center gap-3 shrink-0">
-                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-sky-400 to-violet-500 flex items-center justify-center shadow-md shadow-sky-500/10">
-                        <span class="font-extrabold text-sm text-white">WM</span>
+        <div class="header-bar backdrop-blur-xl bg-white/70 dark:bg-[#0b0f19]/75 border-b border-slate-200/60 dark:border-white/5">
+            <div class="max-w-6xl mx-auto px-5 md:px-8 flex items-center justify-between h-16">
+                <a href="#home" class="flex items-center gap-3 shrink-0 group">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-400 to-violet-500 flex items-center justify-center shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
+                        <span class="font-display font-extrabold text-xs text-white">WM</span>
                     </div>
-                    <div class="hidden md:block">
-                        <div class="text-sm font-semibold tracking-tight text-slate-900 dark:text-slate-50">WATTANA MANANGAM</div>
-                        <div class="text-xs text-slate-500 dark:text-slate-400">Computer Science • IoT • Mobile</div>
-                    </div>
+                    <span class="hidden sm:block font-display font-bold text-sm tracking-tight text-slate-900 dark:text-white">Wattana Manangam</span>
                 </a>
-                <nav class="hidden md:flex gap-8 items-center text-sm font-medium text-slate-600 dark:text-slate-400">
-                    <a href="#aboutme" class="group relative px-1 py-2 hover:text-slate-900 dark:hover:text-slate-50">About me <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-gradient-to-r from-sky-400 to-violet-500 rounded-full transition-all group-hover:w-full"></span></a>
-                    <a href="#skills" class="group relative px-1 py-2 hover:text-slate-900 dark:hover:text-slate-50">Skills <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-gradient-to-r from-sky-400 to-violet-500 rounded-full transition-all group-hover:w-full"></span></a>
-                    <a href="#projects" class="group relative px-1 py-2 hover:text-slate-900 dark:hover:text-slate-50">Projects <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-gradient-to-r from-sky-400 to-violet-500 rounded-full transition-all group-hover:w-full"></span></a>
-                    <a href="#timeline" class="group relative px-1 py-2 hover:text-slate-900 dark:hover:text-slate-50">Timeline <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-gradient-to-r from-sky-400 to-violet-500 rounded-full transition-all group-hover:w-full"></span></a>
+                <nav class="hidden md:flex gap-1 items-center text-sm font-medium">
+                    <a href="#aboutme" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#timeline" class="nav-link">Timeline</a>
                 </nav>
                 <div class="flex items-center gap-2">
-                    <button id="themeToggle" class="theme-toggle-btn p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors inline-flex items-center justify-center">
+                    <button id="themeToggle" class="theme-toggle-btn p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors" aria-label="สลับธีม">
                         <span class="theme-icon-wrap relative block w-5 h-5">
-                            <svg id="theme-icon-light" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute inset-0 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                            </svg>
-                            <svg id="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute inset-0 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                            </svg>
+                            <svg class="h-5 w-5 absolute inset-0 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                            <svg class="h-5 w-5 absolute inset-0 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
                         </span>
                     </button>
-                    <a href="#contact" class="hidden md:inline-block px-5 py-2 rounded-full bg-gradient-to-r from-sky-400 to-violet-500 text-white font-semibold text-sm shadow-lg shadow-sky-500/20 hover:scale-105 transition-transform">Contact</a>
-                    <button id="mobileBtn" class="md:hidden p-2 rounded-md bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    <a href="#contact" class="btn-primary hidden md:inline-flex text-sm px-4 py-2">Contact</a>
+                    <button id="mobileBtn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-white/5 text-slate-700 dark:text-slate-300" aria-label="เปิดเมนู">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
                     </button>
                 </div>
             </div>
-            <div id="mobileNav" class="md:hidden mobile-nav bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-slate-200/80 dark:border-slate-200/10">
-                <div class="px-6 py-4 flex flex-col gap-3">
-                    <a href="#aboutme" class="py-2 px-3 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300">Aboutme</a>
-                    <a href="#skills" class="py-2 px-3 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300">Skills</a>
-                    <a href="#projects" class="py-2 px-3 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300">Projects</a>
-                    <a href="#timeline" class="py-2 px-3 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300">Timeline</a>
-                    <a href="#contact" class="py-2.5 px-3 rounded-md bg-gradient-to-r from-sky-400 to-violet-500 text-white text-center font-semibold mt-2 shadow-md">Contact</a>
+            <div id="mobileNav" class="md:hidden mobile-nav border-t border-slate-200/60 dark:border-white/5 bg-white/95 dark:bg-[#0b0f19]/95 backdrop-blur-xl">
+                <div class="px-5 py-4 flex flex-col gap-1">
+                    <a href="#aboutme" class="mobile-nav-link">About</a>
+                    <a href="#skills" class="mobile-nav-link">Skills</a>
+                    <a href="#projects" class="mobile-nav-link">Projects</a>
+                    <a href="#timeline" class="mobile-nav-link">Timeline</a>
+                    <a href="#contact" class="btn-primary text-center mt-3 py-2.5">Contact</a>
                 </div>
             </div>
         </div>
     </header>
+
     <main class="relative z-10">
-        <section id="home" class="max-w-7xl mx-auto px-6 lg:px-8 py-24 grid md:grid-cols-2 gap-12 items-center">
-            <div class="relative z-10">
-                <div class="reveal">
-                    <p class="text-sm text-sky-500 dark:text-sky-400 font-medium mb-4">Hi, I'm</p>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900 dark:text-slate-50">Wattana <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-violet-500">Manangam</span></h1>
-                </div>
-                <div class="mt-6 max-w-xl reveal">
-                    <p class="text-slate-700 dark:text-slate-300 text-lg" id="typeLine">นักศึกษาวิทยาการคอมพิวเตอร์ • IoT & Mobile Developer</p>
-                    <p class="mt-4 text-slate-500 dark:text-slate-400">ชอบสร้างโปรเจ็กต์ที่แก้ปัญหาให้ผู้คนจริงจัง เช่น ระบบให้อาหารแมวอัตโนมัติ และแอปติดตามค่าใช้จ่าย</p>
-                    <div class="mt-8 flex gap-4">
-                        <a href="#projects" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-200/70 dark:bg-slate-800/70 hover:bg-slate-300/70 dark:hover:bg-slate-700/70 text-slate-800 dark:text-slate-200 font-medium transition-colors">View Projects
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                        </a>
-                          </a>
+        <!-- Hero -->
+        <section id="home" class="max-w-6xl mx-auto px-5 md:px-8 pt-20 pb-24 md:pt-28 md:pb-32">
+            <div class="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-center">
+                <div>
+                    <div class="reveal">
+                        <p class="section-label mb-5">Portfolio 2026</p>
+                        <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-slate-900 dark:text-white">
+                            Wattana<br>
+                            <span class="text-gradient">Manangam</span>
+                        </h1>
                     </div>
-                    <div class="mt-8 flex gap-4 text-slate-400 dark:text-slate-500">
-                        <a aria-label="GitHub" href="https://github.com/Wattana65101" target="_blank" rel="noopener noreferrer" class="hover:text-slate-700 dark:hover:text-slate-300 transition-colors"><i class="ph ph-github-logo" style="font-size:22px"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="relative z-10 flex justify-center reveal">
-                <div class="w-full max-w-sm backdrop-blur-sm bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl p-6 shadow-2xl shadow-slate-300/20 dark:shadow-sky-500/10">
-                    <div class="flex items-center gap-5">
-                        <img  src="1666.jpg" alt="Wattana" class="w-24 h-24 rounded-full object-cover border-2 border-white/50 dark:border-white/10 shadow-md">
-                        <div>
-                            <div class="text-lg font-semibold text-slate-900 dark:text-slate-100">Wattana Manangam</div>
-                            <div class="text-sm text-slate-500 dark:text-slate-400">นักศึกษาวิทยาการคอมพิวเตอร์</div>
+                    <div class="mt-7 max-w-lg reveal">
+                        <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 min-h-[2rem]">
+                            <span id="typeLine"></span><span class="typing-cursor">|</span>
+                        </p>
+                        <p class="mt-4 text-slate-500 dark:text-slate-400 leading-relaxed">
+                            สร้างระบบ IoT และแอปมือถือที่แก้ปัญหาจริง — จากเครื่องให้อาหารแมวอัตโนมัติ ไปจนถึงแอปติดตามค่าใช้จ่าย
+                        </p>
+                        <div class="mt-8 flex flex-wrap gap-3">
+                            <a href="#projects" class="btn-primary inline-flex items-center gap-2">
+                                ดูโปรเจกต์
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                            <a href="https://github.com/Wattana65101" target="_blank" rel="noopener noreferrer" class="btn-secondary inline-flex items-center gap-2">
+                                <i class="ph ph-github-logo text-lg"></i>
+                                GitHub
+                            </a>
+                        </div>
+                        <div class="mt-10 flex flex-wrap gap-6 text-sm text-slate-500 dark:text-slate-400">
+                            <div><span class="block font-display text-2xl font-bold text-slate-900 dark:text-white">2+</span>โปรเจกต์</div>
+                            <div><span class="block font-display text-2xl font-bold text-slate-900 dark:text-white">IoT</span>ESP8266 / ESP32</div>
+                            <div><span class="block font-display text-2xl font-bold text-slate-900 dark:text-white">CS</span>ปี 4 · ราชภัฏพระนคร</div>
                         </div>
                     </div>
-                    <div class="mt-5 grid grid-cols-1 gap-3">
-                        <div class="p-4 rounded-lg bg-slate-100/80 dark:bg-gray-700/50 text-left"><div class="text-sm text-slate-500 dark:text-slate-400">University</div><div class="font-semibold text-slate-800 dark:text-slate-200">Phranakhon Rajabhat</div></div>
-                        <div class="p-4 rounded-lg bg-slate-100/80 dark:bg-gray-700/50 text-left"><div class="text-sm text-slate-500 dark:text-slate-400">Year</div><div class="font-semibold text-slate-800 dark:text-slate-200">4</div></div>
-                        <div class="p-4 rounded-lg bg-slate-100/80 dark:bg-gray-700/50 text-left"><div class="text-sm text-slate-500 dark:text-slate-400">Major</div><div class="font-semibold text-slate-800 dark:text-slate-200">Computer Science</div></div>
-                        <div class="p-4 rounded-lg bg-slate-100/80 dark:bg-gray-700/50 text-left"><div class="text-sm text-slate-500 dark:text-slate-400">Age</div><div class="font-semibold text-slate-800 dark:text-slate-200">22</div></div>
+                </div>
+                <div class="reveal flex justify-center lg:justify-end">
+                    <div class="hero-photo-wrap">
+                        <div class="hero-photo-ring" aria-hidden="true"></div>
+                        <img src="รูปหล่อ.jpg" alt="Wattana Manangam" class="hero-photo" width="320" height="320">
+                        <div class="hero-photo-badge">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            พร้อมรับงาน
+                        </div>
                     </div>
-                    <div class="mt-5 text-sm text-slate-600 dark:text-slate-300 font-medium">Skills</div>
-                    <div class="mt-2 flex flex-wrap gap-2">
-                        <span class="tag-lift text-xs px-3 py-1 bg-sky-100 text-sky-800 dark:bg-sky-500/20 dark:text-sky-300 rounded-full font-medium">ESP32</span>
-                        <span class="tag-lift text-xs px-3 py-1 bg-violet-100 text-violet-800 dark:bg-violet-500/20 dark:text-violet-300 rounded-full font-medium">React Native</span>
-                        <span class="tag-lift text-xs px-3 py-1 bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-300 rounded-full font-medium">Python</span>
-                    </div>
-        </section>
-        >
-        <section id="aboutme" class="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
-        <div class="reveal-left w-64 h-64 lg:w-80 lg:h-80 mx-auto">
-            <img src="รูปหล่อ.jpg" alt="Wattana Manangam Profile Picture" class="rounded-full w-full h-full object-cover shadow-lg border-4 border-slate-200 dark:border-slate-700 transform hover:scale-105 transition-transform duration-300">
-        </div>
-        <div class="reveal-right text-center md:text-left">
-            <h2 class="text-slate-500 dark:text-slate-400 text-lg font-medium tracking-wider">ABOUT ME</h2>
-            <h3 class="text-slate-900 dark:text-slate-50 text-4xl lg:text-5xl font-extrabold tracking-tight mt-2">
-            นาย วัฒนา มานะงาม
-            </h3>
-            <p class="text-slate-600 dark:text-slate-300 mt-6 text-lg max-w-xl mx-auto md:mx-0">
-                นักศึกษาชั้นปีที่ 4 คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์ <br class="hidden md:block">
-                ที่ <strong class="text-cyan-600 dark:text-cyan-400">มหาวิทยาลัยราชภัฏพระนคร</strong>
-            </p>
-            <p class="text-slate-500 dark:text-slate-400 mt-4 max-w-xl mx-auto md:mx-0">
-                ผมมีความหลงใหลในการพัฒนาเทคโนโลยี โดยเฉพาะด้าน <strong class="font-medium text-slate-800 dark:text-slate-200">IoT</strong> และ <strong class="font-medium text-slate-800 dark:text-slate-200">Mobile Web Application</strong> และพร้อมเสมอที่จะเรียนรู้และท้าทายตัวเองกับเทคโนโลยีใหม่ๆ หากมีโอกาส
-            </p>
-        </div>
-    </div>
-</section>
-            </div>
-        <section id="skills" class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-            <div class="reveal text-center">
-                <h3 class="text-slate-900 dark:text-slate-50 text-3xl font-bold tracking-tight">My Skills</h3>
-                <p class="text-slate-500 dark:text-slate-400 mt-2 max-w-2xl mx-auto">เทคโนโลยีที่คุ้นเคย เครื่องมือที่เคยใช้เเละภาษา,<br> Embedded / IoT Skills, Programming Languages and Tools</p>
-            </div>
-            <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-                <div class="reveal-item reveal-item-delay-1 p-6 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl">
-                    <div class="text-sky-500 dark:text-sky-400 text-sm font-semibold">Embedded / IoT Skills</div>
-                    <div class="mt-2 font-bold text-slate-800 dark:text-slate-200">Microcontrollers / Boards</div>
-                    <div class="mt-3 text-slate-500 dark:text-slate-400 text-sm">ESP8266 / ESP32 </div>
-                    <div class="mt-4 text-slate-500 dark:text-slate-400 text-sm">Blynk Mobile App Control IoT </div>
-                    <div class="mt-4 text-slate-500 dark:text-slate-400 text-sm">Servo Motors </div>
-                </div>
-                <div class="reveal-item reveal-item-delay-2 p-6 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl">
-                    <div class="text-violet-500 dark:text-violet-400 text-sm font-semibold">Programming Languages</div>
-                    <div class="mt-4 text-slate-500 dark:text-slate-400 text-sm">C / C++</div>
-                    <div class="mt-3 text-slate-500 dark:text-slate-400 text-sm">Python</div>
-                    <div class="mt-4 text-slate-500 dark:text-slate-400 text-sm">HTML </div>
-                </div>
-                <div class="reveal-item reveal-item-delay-3 p-6 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl">
-                    <div class="text-emerald-500 dark:text-emerald-400 text-sm font-semibold">Database</div>
-                    <div class="mt-3 text-slate-500 dark:text-slate-400 text-sm">MySQL</div>
-                </div>
-                <div class="reveal-item reveal-item-delay-4 p-6 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl">
-                    <div class="text-rose-500 dark:text-rose-400 text-sm font-semibold">Tools</div>
-                    <div class="mt-4 text-slate-500 dark:text-slate-400 text-sm">Arduino IDE</div>
-                    <div class="mt-3 text-slate-500 dark:text-slate-400 text-sm">VS Code</div>
-                    <div class="mt-3 text-slate-500 dark:text-slate-400 text-sm">Android Studio</div>
-                    <div class="mt-3 text-slate-500 dark:text-slate-400 text-sm">Figma / Canva</div>
                 </div>
             </div>
         </section>
-        <section id="projects" class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-            <div class="reveal text-center">
-                <h3 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">My Projects</h3>
-                <p class="text-slate-500 dark:text-slate-400 mt-2">ผลงานที่เด่นและเทคโนโลยีที่ใช้</p>
-            </div>
-            <div class="projects-scroll-viewport mt-10 reveal">
-                <div class="projects-scroll-track">
-                    <div class="project-item">
-<div class="card-3d bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-4 md:flex gap-4 backdrop-blur-sm">
-    <img src="cachedImage.png" alt="รูปโปรเจกต์เครื่องให้อาหารแมว" class="w-full md:w-1/4 h-auto rounded-lg object-cover">
-    <div class="flex-1 text-slate-800 dark:text-slate-100">
-        <h3 class="text-xl font-bold mb-4">
-            โปรเจคเครื่องให้อาหารแมวอัตโนมัติควบคุมผ่านมือถือ (Mobile Application: Blynk)
-        </h3>
-        <ul class="list-disc pl-5 space-y-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            <li>
-                <strong>การควบคุมการจ่ายอาหาร:</strong>
-                <ul class="list-disc pl-5 mt-1 space-y-1">
-                    <li>ใช้ ESP8266 ควบคุมการทำงานของเซอร์โวมอเตอร์หรือมอเตอร์ DC</li>
-                    <li>สามารถตั้งเวลา หรือสั่งงานผ่าน Wi-Fi (Blynk Web หรือ Mobile Application)</li>
-                </ul>
-            </li>
-            <li>
-                <strong>การจ่ายอาหารจริง:</strong>
-                <ul class="list-disc pl-5 mt-1 space-y-1">
-                    <li>เมื่อถึงเวลาที่ตั้งไว้ หรือเมื่อผู้ใช้สั่งการผ่านแอป</li>
-                </ul>
-            </li>
-            <li>
-                <strong>อุปกรณ์ที่ใช้ในโปรเจกต์:</strong>
-                <ul class="list-disc pl-5 mt-1 space-y-1">
-                    <li>ESP8266 บอร์ดควบคุมหลัก ใช้เชื่อมต่อ Wi-Fi และควบคุมระบบ</li>
-                    <li>Servo Motor SG90 สำหรับเปิด-ปิดช่องให้อาหาร</li>
-                    <li>ถังเก็บอาหาร (พลาสติกใส)</li>
-                    <li>ถาดรองอาหาร</li>
-                    <li>แผ่นพลาสวูด สำหรับสร้างโครงเครื่อง</li>
-                    <li>ระบบควบคุมผ่านแอป Blynk บนมือถือ</li>
-                </ul>
-            </li>
-        </ul>
-        <div class="mt-4 flex flex-wrap gap-2">
-            <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">IoT</span>
-            <span class="tag-lift bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Arduino IDE C/C++</span>
-            <span class="tag-lift bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Blynk</span>
-        </div>
-        <div class="mt-6 flex gap-4 flex-wrap">
-            <a href="codecatfeed.ino" target="_blank" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">View Code</a>
-            <a href="โครงงานระบบให้อาหารสัตว์อัตโนมัติ.pptx.pdf" target="_blank" class="px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition">Document</a>
-        </div>
-    </div>
-</div>
-                    </div>
-                    <div class="project-item">
-                <article class="card-3d project-card flex flex-col md:flex-row bg-white/70 dark:bg-gray-800/70 
-                    border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden backdrop-blur-sm">
-                    <img src="homepg.png" class="w-full md:w-1/4 h-auto rounded-lg object-cover" alt="รูปโปรเจกต์เครื่องให้อาหารแมว">
-                    <div class="p-6 flex flex-col justify-between">
+
+        <!-- About -->
+        <section id="aboutme" class="section-wrap">
+            <div class="max-w-6xl mx-auto px-5 md:px-8">
+                <div class="reveal max-w-2xl">
+                    <p class="section-label">About</p>
+                    <h2 class="section-title mt-3">นาย วัฒนา มานะงาม</h2>
+                    <p class="mt-5 text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                        นักศึกษาชั้นปีที่ 4 สาขาวิทยาการคอมพิวเตอร์
+                        <strong class="text-sky-600 dark:text-sky-400 font-medium">มหาวิทยาลัยราชภัฏพระนคร</strong>
+                        มีความสนใจด้าน IoT และ Mobile Application และพร้อมเรียนรู้เทคโนโลยีใหม่ๆ
+                    </p>
+                </div>
+                <div class="mt-10 grid sm:grid-cols-3 gap-4 reveal">
+                    <div class="info-pill reveal-item reveal-item-delay-1">
+                        <i class="ph ph-graduation-cap text-sky-500 text-xl"></i>
                         <div>
-                            <h4 class="text-lg font-bold text-slate-900 dark:text-slate-100">MOBILE APPLICATION TRACK SPEND (กำลังพัฒนา)</h4>
-                            <div class="text-slate-500 dark:text-slate-400 mt-2 text-sm space-y-2">
-                                <p><strong># จุดเด่นของแอป</strong></p>
-                                <ul class="list-disc pl-5 space-y-2">
-                                    <li><strong>ใช้งานง่าย บันทึกได้ทันที</strong> เพียงใส่จำนวนเงิน เลือกหมวดหมู่ และบันทึก ก็สามารถเก็บข้อมูลรายรับ–รายจ่ายได้อย่างเป็นระบบ</li>
-                                    <li><strong>สรุปผลชัดเจนด้วยกราฟ</strong> ข้อมูลทั้งหมดถูกแสดงออกมาในรูปแบบกราฟและแผนภูมิ ทำให้ผู้ใช้มองเห็นพฤติกรรมการใช้เงินได้ทันที เช่น หมวดหมู่ไหนใช้จ่ายมากที่สุด หรือรายจ่ายในแต่ละเดือนเท่าไร</li>
-                                    <li><strong>ระบบงบประมาณ (Budget Control)</strong> ผู้ใช้สามารถกำหนดงบรายเดือน หรือกำหนดงบเฉพาะหมวด เช่น “ค่าอาหารไม่เกิน 3,000 บาท/เดือน” เมื่อใกล้ถึงขีดจำกัด แอปจะแจ้งเตือนให้รู้ตัวก่อนเงินเกินงบ </li>
-                                    <li><strong>ค้นหาและกรองข้อมูลได้สะดวก</strong> หากต้องการดูย้อนหลังว่าสิ้นเดือนที่แล้วใช้จ่ายไปกับอะไร สามารถค้นหาตามหมวดหมู่ วันที่ หรือคำอธิบายได้ทันที</li>
-                                    <li><strong>ปรับแต่งหน้าตาได้ตามใจ</strong> ผู้ใช้เลือกธีม สี และรูปแบบการแสดงผลได้เอง เพื่อให้การใช้งานสนุกและไม่จำเจ </li>
-                                </ul>
+                            <div class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider">University</div>
+                            <div class="font-semibold text-slate-900 dark:text-white mt-0.5">Phranakhon Rajabhat</div>
+                        </div>
+                    </div>
+                    <div class="info-pill reveal-item reveal-item-delay-2">
+                        <i class="ph ph-code text-violet-500 text-xl"></i>
+                        <div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider">Focus</div>
+                            <div class="font-semibold text-slate-900 dark:text-white mt-0.5">IoT · Mobile · Web</div>
+                        </div>
+                    </div>
+                    <div class="info-pill reveal-item reveal-item-delay-3">
+                        <i class="ph ph-map-pin text-emerald-500 text-xl"></i>
+                        <div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider">Location</div>
+                            <div class="font-semibold text-slate-900 dark:text-white mt-0.5">Bangkok, Thailand</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="section-wrap">
+            <div class="max-w-6xl mx-auto px-5 md:px-8">
+                <div class="reveal text-center max-w-xl mx-auto">
+                    <p class="section-label">Skills</p>
+                    <h2 class="section-title mt-3">เทคโนโลยีที่ใช้งาน</h2>
+                </div>
+                <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal">
+                    <article class="skill-card reveal-item reveal-item-delay-1">
+                        <div class="skill-card-icon text-sky-500"><i class="ph ph-cpu"></i></div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white">Embedded / IoT</h3>
+                        <ul class="mt-3 space-y-1.5 text-sm text-slate-500 dark:text-slate-400">
+                            <li>ESP8266 / ESP32</li>
+                            <li>Blynk App Control</li>
+                            <li>Servo Motors</li>
+                        </ul>
+                    </article>
+                    <article class="skill-card reveal-item reveal-item-delay-2">
+                        <div class="skill-card-icon text-violet-500"><i class="ph ph-brackets-curly"></i></div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white">Languages</h3>
+                        <ul class="mt-3 space-y-1.5 text-sm text-slate-500 dark:text-slate-400">
+                            <li>C / C++</li>
+                            <li>Python</li>
+                            <li>HTML / CSS</li>
+                        </ul>
+                    </article>
+                    <article class="skill-card reveal-item reveal-item-delay-3">
+                        <div class="skill-card-icon text-emerald-500"><i class="ph ph-database"></i></div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white">Database</h3>
+                        <ul class="mt-3 space-y-1.5 text-sm text-slate-500 dark:text-slate-400">
+                            <li>MySQL</li>
+                        </ul>
+                    </article>
+                    <article class="skill-card reveal-item reveal-item-delay-4">
+                        <div class="skill-card-icon text-rose-500"><i class="ph ph-wrench"></i></div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white">Tools</h3>
+                        <ul class="mt-3 space-y-1.5 text-sm text-slate-500 dark:text-slate-400">
+                            <li>Arduino IDE · VS Code</li>
+                            <li>Android Studio</li>
+                            <li>Figma / Canva</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="section-wrap">
+            <div class="max-w-6xl mx-auto px-5 md:px-8">
+                <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                    <div>
+                        <p class="section-label">Projects</p>
+                        <h2 class="section-title mt-3">ผลงานที่เด่น</h2>
+                    </div>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 sm:max-w-xs sm:text-right">เลื่อนเมาส์บนการ์ดเพื่อดูมิติ 3D</p>
+                </div>
+
+                <div class="mt-12 grid gap-6 reveal">
+                    <!-- Featured project -->
+                    <article class="project-card card-tilt reveal-item reveal-item-delay-1 lg:grid lg:grid-cols-2 lg:gap-0">
+                        <div class="project-card-image">
+                            <img src="cachedImage.png" alt="เครื่องให้อาหารแมวอัตโนมัติ" loading="lazy">
+                            <span class="project-badge">Featured · IoT</span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="font-display text-xl sm:text-2xl font-bold text-slate-900 dark:text-white leading-snug">
+                                เครื่องให้อาหารแมวอัตโนมัติ
+                            </h3>
+                            <p class="text-sm text-sky-600 dark:text-sky-400 font-medium mt-1">ควบคุมผ่านมือถือ · Blynk App</p>
+                            <p class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                                ระบบจ่ายอาหารแมวอัตโนมัติด้วย ESP8266 ควบคุม Servo Motor ตั้งเวลาหรือสั่งงานผ่าน Wi-Fi ได้จากแอป Blynk บนมือถือ
+                            </p>
+                            <div class="mt-5 flex flex-wrap gap-2">
+                                <span class="tag">IoT</span>
+                                <span class="tag">ESP8266</span>
+                                <span class="tag">Arduino C/C++</span>
+                                <span class="tag">Blynk</span>
+                            </div>
+                            <div class="mt-6 flex flex-wrap gap-3">
+                                <a href="codecatfeed.ino" target="_blank" rel="noopener noreferrer" class="btn-primary text-sm py-2 px-4">View Code</a>
+                                <a href="โครงงานระบบให้อาหารสัตว์อัตโนมัติ.pptx.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm py-2 px-4">Document</a>
                             </div>
                         </div>
-                        <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#8A2BE2; color:#fff;">React Native</span>
-                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#40E0D0; color:#000;">MySQL</span>
-                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#3EB489; color:#fff;">Tools Figma Canva</span>
-                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#FF6F61; color:#fff;">VS Code</span>
-                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#8A2BE2; color:#fff;">Android Studio</span>
-                        </div>
-                    </div>
-                </article>
-                    </div>
-                    <div class="project-item">
-                        <div class="card-3d bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-8 md:flex gap-6 backdrop-blur-sm border-dashed">
-                            <div class="flex-1 flex flex-col items-center justify-center text-center py-12 min-h-[200px]">
-                                <div class="w-20 h-20 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4 animate-pulse-slow">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-slate-400 dark:text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                    </article>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <article class="project-card card-tilt reveal-item reveal-item-delay-2">
+                            <div class="project-card-image project-card-image-sm">
+                                <img src="homepg.png" alt="Track Spend App" loading="lazy">
+                                <span class="project-badge project-badge-wip">In Progress</span>
+                            </div>
+                            <div class="project-card-body">
+                                <h3 class="font-display text-lg font-bold text-slate-900 dark:text-white">Track Spend</h3>
+                                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    แอปบันทึกรายรับ-รายจ่าย พร้อมกราฟสรุป ระบบงบประมาณ และแจ้งเตือนเมื่อใกล้เกินงบ
+                                </p>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="tag">React Native</span>
+                                    <span class="tag">MySQL</span>
+                                    <span class="tag">Figma</span>
                                 </div>
-                                <h4 class="text-lg font-bold text-slate-500 dark:text-slate-400">โปรเจกต์ถัดไป</h4>
+                            </div>
+                        </article>
+
+                        <article class="project-card project-card-placeholder card-tilt reveal-item reveal-item-delay-3">
+                            <div class="project-card-body flex flex-col items-center justify-center text-center min-h-[280px]">
+                                <div class="w-14 h-14 rounded-2xl bg-slate-100 dark:bg-white/5 flex items-center justify-center mb-4">
+                                    <i class="ph ph-plus text-2xl text-slate-400"></i>
+                                </div>
+                                <h3 class="font-display font-bold text-slate-500 dark:text-slate-400">โปรเจกต์ถัดไป</h3>
                                 <p class="text-sm text-slate-400 dark:text-slate-500 mt-1">กำลังจะมาเร็วๆ นี้</p>
                             </div>
-                        </div>
-                    </div>
-                    <!-- ซ้ำสำหรับ loop เลื่อนไม่ขาด -->
-                    <div class="project-item">
-<div class="card-3d bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-4 md:flex gap-4 backdrop-blur-sm">
-    <img src="cachedImage.png" alt="รูปโปรเจกต์เครื่องให้อาหารแมว" class="w-full md:w-1/4 h-auto rounded-lg object-cover">
-    <div class="flex-1 text-slate-800 dark:text-slate-100">
-        <h3 class="text-xl font-bold mb-4">โปรเจคเครื่องให้อาหารแมวอัตโนมัติควบคุมผ่านมือถือ (Mobile Application: Blynk)</h3>
-        <p class="text-sm text-slate-600 dark:text-slate-300">ESP8266 • Blynk • Servo Motor</p>
-        <div class="mt-4 flex flex-wrap gap-2">
-            <span class="tag-lift bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">IoT</span>
-            <span class="tag-lift bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Blynk</span>
-        </div>
-    </div>
-</div>
-                    </div>
-                    <div class="project-item">
-                <article class="card-3d project-card flex flex-col md:flex-row bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden backdrop-blur-sm">
-                    <img src="homepg.png" class="w-full md:w-1/4 h-auto rounded-lg object-cover" alt="Track Spend">
-                    <div class="p-6 flex flex-col justify-between">
-                        <h4 class="text-lg font-bold text-slate-900 dark:text-slate-100">MOBILE APPLICATION TRACK SPEND (กำลังพัฒนา)</h4>
-                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">React Native • MySQL • กราฟรายรับ-รายจ่าย</p>
-                        <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#8A2BE2; color:#fff;">React Native</span>
-                            <span class="tag-lift px-3 py-1 rounded-full font-medium" style="background-color:#40E0D0; color:#000;">MySQL</span>
-                        </div>
-                    </div>
-                </article>
-                    </div>
-                    <div class="project-item">
-                        <div class="card-3d bg-white/70 dark:bg-gray-800/70 border border-slate-200/80 dark:border-slate-200/10 rounded-2xl overflow-hidden p-8 border-dashed backdrop-blur-sm">
-                            <div class="flex flex-col items-center justify-center text-center py-12 min-h-[200px]">
-                                <div class="w-20 h-20 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4 animate-pulse-slow">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-slate-400 dark:text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
-                                </div>
-                                <p class="text-sm text-slate-400 dark:text-slate-500">โปรเจกต์ถัดไป กำลังจะมา</p>
-                            </div>
-                        </div>
+                        </article>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="timeline" class="max-w-3xl mx-auto px-6 lg:px-8 py-16">
-            <div class="reveal text-center">
-                <h3 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">Timeline</h3>
-                <p class="text-slate-500 dark:text-slate-400 mt-2">เส้นทางการศึกษาและประสบการณ์สั้น ๆ</p>
+
+        <!-- Timeline -->
+        <section id="timeline" class="section-wrap">
+            <div class="max-w-2xl mx-auto px-5 md:px-8">
+                <div class="reveal text-center">
+                    <p class="section-label">Timeline</p>
+                    <h2 class="section-title mt-3">เส้นทางการศึกษา</h2>
+                </div>
+                <ol class="mt-12 space-y-0 reveal">
+                    <li class="timeline-item reveal-item reveal-item-delay-1">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <time class="text-xs font-medium text-sky-600 dark:text-sky-400">2016 – 2021</time>
+                            <h3 class="font-semibold text-slate-900 dark:text-white mt-1">Navamindarajinuthit Benjamarachalai School</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">High School</p>
+                        </div>
+                    </li>
+                    <li class="timeline-item reveal-item reveal-item-delay-2">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <time class="text-xs font-medium text-sky-600 dark:text-sky-400">2022 – Present</time>
+                            <h3 class="font-semibold text-slate-900 dark:text-white mt-1">Phranakhon Rajabhat University</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Computer Science — โปรเจกต์ IoT แรกเสร็จสมบูรณ์</p>
+                        </div>
+                    </li>
+                </ol>
             </div>
-            <ol class="mt-10 border-l-2 border-sky-200 dark:border-sky-500/30 ml-4 space-y-8 reveal">
-                <li class="reveal-item reveal-item-delay-1 pl-8 relative">
-                    <span class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-gradient-to-br from-sky-400 to-violet-500 border-4 border-slate-50 dark:border-gray-900"></span>
-                    <div class="text-sm text-slate-600 dark:text-slate-300 font-semibold">2016 - 2021 Navamindarajinuthit Benjamarachalai School</div>
-                    <div class="text-slate-500 dark:text-slate-400 text-sm mt-1">Highschool</div>
-                </li>
-                <li class="reveal-item reveal-item-delay-2 pl-8 relative">
-                    <span class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-gradient-to-br from-sky-400 to-violet-500 border-4 border-slate-50 dark:border-gray-900"></span>
-                    <div class="text-sm text-slate-600 dark:text-slate-300 font-semibold">2022 - Present Phranakhon Rajabhat University</div>
-                    <div class="text-slate-500 dark:text-slate-400 text-sm mt-1">Started in Computer Science and completed the first project.</div>
-                </li>
-            </ol>
         </section>
-        <section id="contact" class="max-w-4xl mx-auto px-6 lg:px-8 py-16">
-            <div class="reveal text-center">
-                <h3 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">Contact Me</h3>
-                <p class="text-slate-500 dark:text-slate-400 mt-2">สามารถติดต่อผมผ่านช่องทางด้านล่างนี้ได้เลยครับ</p>
-            </div>
-            <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 reveal">
-                <a href="mailto:wattana65101@gmail.com" class="reveal-item reveal-item-delay-1 flex items-center gap-4 p-5 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-sky-300 dark:hover:border-sky-400/50">
-                    <div class="p-3 rounded-full bg-sky-100 dark:bg-sky-500/20 text-sky-500 dark:text-sky-400 flex items-center justify-center w-12 h-12 shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    </div>
-                    <div><div class="font-semibold text-slate-800 dark:text-slate-200">Email</div><div class="text-slate-500 dark:text-slate-400 text-sm">wattana65101@gmail.com</div></div>
-                </a>
-                <a href="tel:+66650618582" class="reveal-item reveal-item-delay-2 flex items-center gap-4 p-5 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-emerald-300 dark:hover:border-emerald-400/50">
-                    <div class="p-3 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-500 dark:text-emerald-400 flex items-center justify-center w-12 h-12 shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                    </div>
-                    <div><div class="font-semibold text-slate-800 dark:text-slate-200">Phone</div><div class="text-slate-500 dark:text-slate-400 text-sm">0650618582</div></div>
-                </a>
-                <a href="https://line.me/ti/p/~mine5454" target="_blank" rel="noopener noreferrer" class="reveal-item reveal-item-delay-3 flex items-center gap-4 p-5 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-green-300 dark:hover:border-green-400/50">
-                    <div class="p-3 rounded-full bg-green-100 dark:bg-green-500/20 flex items-center justify-center w-12 h-12 shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00B900" d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.039 1.085l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314z"/></svg>
-                    </div>
-                    <div><div class="font-semibold text-slate-800 dark:text-slate-200">Line</div><div class="text-slate-500 dark:text-slate-400 text-sm">ID Line mine5454</div></div>
-                </a>
-                <a href="https://github.com/Wattana65101" target="_blank" rel="noopener noreferrer" class="reveal-item reveal-item-delay-4 flex items-center gap-4 p-5 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-slate-200/80 dark:border-slate-200/10 shadow-lg shadow-slate-300/10 dark:shadow-sky-500/10 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-slate-400 dark:hover:border-slate-500">
-                    <div class="p-3 rounded-full bg-slate-100 dark:bg-slate-600/30 flex items-center justify-center w-12 h-12 shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-slate-700 dark:text-slate-300" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                    </div>
-                    <div><div class="font-semibold text-slate-800 dark:text-slate-200">GitHub</div><div class="text-slate-500 dark:text-slate-400 text-sm">Wattana65101</div></div>
-                </a>
+
+        <!-- Contact -->
+        <section id="contact" class="section-wrap pb-24">
+            <div class="max-w-3xl mx-auto px-5 md:px-8">
+                <div class="reveal text-center">
+                    <p class="section-label">Contact</p>
+                    <h2 class="section-title mt-3">ติดต่อได้เลย</h2>
+                    <p class="mt-3 text-slate-500 dark:text-slate-400">เปิดรับโอกาส internship และ freelance</p>
+                </div>
+                <div class="mt-10 grid sm:grid-cols-2 gap-4 reveal">
+                    <a href="mailto:wattana65101@gmail.com" class="contact-card reveal-item reveal-item-delay-1">
+                        <div class="contact-icon bg-sky-100 dark:bg-sky-500/15 text-sky-600 dark:text-sky-400"><i class="ph ph-envelope-simple"></i></div>
+                        <div>
+                            <div class="font-semibold text-slate-900 dark:text-white">Email</div>
+                            <div class="text-sm text-slate-500 dark:text-slate-400">wattana65101@gmail.com</div>
+                        </div>
+                    </a>
+                    <a href="tel:+66650618582" class="contact-card reveal-item reveal-item-delay-2">
+                        <div class="contact-icon bg-emerald-100 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"><i class="ph ph-phone"></i></div>
+                        <div>
+                            <div class="font-semibold text-slate-900 dark:text-white">Phone</div>
+                            <div class="text-sm text-slate-500 dark:text-slate-400">065-061-8582</div>
+                        </div>
+                    </a>
+                    <a href="https://line.me/ti/p/~mine5454" target="_blank" rel="noopener noreferrer" class="contact-card reveal-item reveal-item-delay-3">
+                        <div class="contact-icon bg-green-100 dark:bg-green-500/15 text-green-600 dark:text-green-400"><i class="ph ph-chat-circle"></i></div>
+                        <div>
+                            <div class="font-semibold text-slate-900 dark:text-white">Line</div>
+                            <div class="text-sm text-slate-500 dark:text-slate-400">mine5454</div>
+                        </div>
+                    </a>
+                    <a href="https://github.com/Wattana65101" target="_blank" rel="noopener noreferrer" class="contact-card reveal-item reveal-item-delay-4">
+                        <div class="contact-icon bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300"><i class="ph ph-github-logo"></i></div>
+                        <div>
+                            <div class="font-semibold text-slate-900 dark:text-white">GitHub</div>
+                            <div class="text-sm text-slate-500 dark:text-slate-400">Wattana65101</div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- ปุ่มกลับขึ้นบน -->
-    <a href="#home" id="backToTop" class="back-to-top fixed bottom-6 right-6 z-50 p-3 rounded-full bg-white/90 dark:bg-gray-800/90 shadow-lg border border-slate-200/80 dark:border-slate-700/50 text-slate-600 dark:text-slate-300 hover:bg-sky-500 hover:text-white hover:border-sky-500 dark:hover:bg-sky-500 dark:hover:border-sky-500 transition-all duration-300 opacity-0 pointer-events-none" aria-label="กลับขึ้นบน">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+    <a href="#home" id="backToTop" class="back-to-top fixed bottom-6 right-6 z-50 p-3 rounded-full bg-white/90 dark:bg-slate-800/90 shadow-lg border border-slate-200/80 dark:border-white/10 text-slate-600 dark:text-slate-300 hover:bg-sky-500 hover:text-white hover:border-sky-500 transition-all duration-300 opacity-0 pointer-events-none" aria-label="กลับขึ้นบน">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
     </a>
 
-    <footer class="bg-gray-100 dark:bg-gray-800/80 py-8 mt-12">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center text-sm text-slate-500 dark:text-slate-400">
-            &copy; 2023 Wattana Manangam. All rights reserved.
+    <footer class="border-t border-slate-200/60 dark:border-white/5 py-8">
+        <div class="max-w-6xl mx-auto px-5 md:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500 dark:text-slate-400">
+            <span>&copy; 2026 Wattana Manangam</span>
+            <span class="text-xs">Built with HTML · Tailwind · ☕</span>
         </div>
     </footer>
+
     <script>
-        // Toggle dark mode
+        // Theme toggle
         var themeBtn = document.getElementById('themeToggle');
         if (themeBtn) {
-            themeBtn.addEventListener('click', function() {
+            themeBtn.addEventListener('click', function () {
                 themeBtn.classList.add('theme-toggle-spin');
-                setTimeout(function() { themeBtn.classList.remove('theme-toggle-spin'); }, 400);
-                if (document.documentElement.classList.contains('dark')) {
-                    document.documentElement.classList.remove('dark');
-                    document.documentElement.classList.add('light');
-                    localStorage.theme = 'light';
-                } else {
-                    document.documentElement.classList.remove('light');
-                    document.documentElement.classList.add('dark');
-                    localStorage.theme = 'dark';
-                }
+                setTimeout(function () { themeBtn.classList.remove('theme-toggle-spin'); }, 400);
+                var isDark = document.documentElement.classList.contains('dark');
+                document.documentElement.classList.toggle('dark', !isDark);
+                document.documentElement.classList.toggle('light', isDark);
+                localStorage.theme = isDark ? 'light' : 'dark';
             });
         }
 
-        // Back to top: แสดงเมื่อ scroll ลงมากกว่า 400px
+        // Back to top
         var backToTop = document.getElementById('backToTop');
         if (backToTop) {
             function toggleBackToTop() {
-                if (window.scrollY > 400) {
-                    backToTop.classList.add('is-visible');
-                } else {
-                    backToTop.classList.remove('is-visible');
-                }
+                backToTop.classList.toggle('is-visible', window.scrollY > 400);
             }
             window.addEventListener('scroll', toggleBackToTop);
             window.addEventListener('load', toggleBackToTop);
         }
-        
-        // Mobile menu toggle
-        const mobileBtn = document.getElementById('mobileBtn');
-        const mobileNav = document.getElementById('mobileNav');
-        mobileBtn.addEventListener('click', () => {
-            mobileNav.classList.toggle('is-open');
-        });
 
-        // Close mobile menu on link click
-        document.querySelectorAll('#mobileNav a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNav.classList.remove('is-open');
+        // Mobile menu
+        var mobileBtn = document.getElementById('mobileBtn');
+        var mobileNav = document.getElementById('mobileNav');
+        if (mobileBtn && mobileNav) {
+            mobileBtn.addEventListener('click', function () { mobileNav.classList.toggle('is-open'); });
+            mobileNav.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () { mobileNav.classList.remove('is-open'); });
             });
-        });
+        }
 
-        // Smooth scrolling for anchor links (รวมปุ่มกลับขึ้นบน)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
             anchor.addEventListener('click', function (e) {
                 var href = this.getAttribute('href');
                 if (href === '#') return;
@@ -468,26 +408,21 @@
                 if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
         });
-        
-        // Reveal on scroll (reveal, reveal-left, reveal-right)
+
+        // Reveal on scroll
         function reveal() {
-            var reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+            var reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
             var windowHeight = window.innerHeight;
-            var elementVisible = 220;
-            for (var i = 0; i < reveals.length; i++) {
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("show");
-                } else {
-                    reveals[i].classList.remove("show");
-                }
-            }
+            reveals.forEach(function (el) {
+                var top = el.getBoundingClientRect().top;
+                el.classList.toggle('show', top < windowHeight - 120);
+            });
         }
-        window.addEventListener("scroll", reveal);
-        window.addEventListener("load", reveal);
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
         reveal();
 
-        // Scroll progress bar
+        // Progress bar
         var progressBar = document.getElementById('progress');
         if (progressBar) {
             function updateProgress() {
@@ -498,30 +433,87 @@
             window.addEventListener('load', updateProgress);
         }
 
-        // แสงตามเมาส์ (โหมดสว่าง)
+        // Mouse spotlight
         var mouseSpotlight = document.getElementById('mouseSpotlight');
         if (mouseSpotlight) {
-            document.addEventListener('mousemove', function(e) {
+            document.addEventListener('mousemove', function (e) {
                 mouseSpotlight.style.setProperty('--mouse-x', e.clientX + 'px');
                 mouseSpotlight.style.setProperty('--mouse-y', e.clientY + 'px');
-                if (document.documentElement.classList.contains('light')) mouseSpotlight.classList.add('is-active');
+                mouseSpotlight.classList.add('is-active');
             });
-            document.addEventListener('mouseleave', function() { mouseSpotlight.classList.remove('is-active'); });
-            if (document.documentElement.classList.contains('light')) mouseSpotlight.classList.add('is-active');
+            document.addEventListener('mouseleave', function () { mouseSpotlight.classList.remove('is-active'); });
         }
 
-        // Header ได้ class scrolled เมื่อ scroll ลง
+        // Header scrolled state
         var mainHeader = document.getElementById('mainHeader');
         if (mainHeader) {
             function toggleHeaderScrolled() {
-                if (window.scrollY > 80) mainHeader.classList.add('scrolled');
-                else mainHeader.classList.remove('scrolled');
+                mainHeader.classList.toggle('scrolled', window.scrollY > 60);
             }
             window.addEventListener('scroll', toggleHeaderScrolled);
             window.addEventListener('load', toggleHeaderScrolled);
         }
+
+        // Active nav link on scroll
+        var sections = document.querySelectorAll('section[id]');
+        var navLinks = document.querySelectorAll('.nav-link');
+        function updateActiveNav() {
+            var scrollY = window.scrollY + 100;
+            sections.forEach(function (section) {
+                var top = section.offsetTop;
+                var height = section.offsetHeight;
+                var id = section.getAttribute('id');
+                if (scrollY >= top && scrollY < top + height) {
+                    navLinks.forEach(function (link) {
+                        link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+                    });
+                }
+            });
+        }
+        window.addEventListener('scroll', updateActiveNav);
+        window.addEventListener('load', updateActiveNav);
+
+        // Typing animation
+        (function () {
+            var el = document.getElementById('typeLine');
+            if (!el) return;
+            var phrases = [
+                'IoT & Mobile Developer',
+                'นักศึกษาวิทยาการคอมพิวเตอร์',
+                'ESP32 · React Native · Python'
+            ];
+            var phraseIndex = 0, charIndex = 0, deleting = false;
+            function type() {
+                var current = phrases[phraseIndex];
+                el.textContent = deleting
+                    ? current.substring(0, charIndex--)
+                    : current.substring(0, ++charIndex);
+                if (!deleting && charIndex === current.length) {
+                    deleting = true;
+                    setTimeout(type, 2000);
+                } else if (deleting && charIndex === 0) {
+                    deleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    setTimeout(type, 400);
+                } else {
+                    setTimeout(type, deleting ? 40 : 70);
+                }
+            }
+            type();
+        })();
+
+        // 3D card tilt
+        document.querySelectorAll('.card-tilt').forEach(function (card) {
+            card.addEventListener('mousemove', function (e) {
+                var rect = card.getBoundingClientRect();
+                var x = (e.clientX - rect.left) / rect.width - 0.5;
+                var y = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.transform = 'perspective(800px) rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 8) + 'deg) translateY(-2px)';
+            });
+            card.addEventListener('mouseleave', function () {
+                card.style.transform = '';
+            });
+        });
     </script>
 </body>
 </html>
-
-
